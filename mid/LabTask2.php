@@ -21,6 +21,11 @@
         position: relative;
         left: 250px;
         }
+
+        input[type="text"]
+        {
+            font-family: 'Times New Roman', Times, serif
+        }
     
     </style>
 
