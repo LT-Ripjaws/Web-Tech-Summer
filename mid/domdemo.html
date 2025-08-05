@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+ 
+<html>
+ 
+<body>
+
+    <style>
+        body { 
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        #switch button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+ 
+<h1 id="page title" > "Light Mood" </h1>
+ 
+<button id ="switch button" onclick="toggle()"> Switch </button>
+ 
+ 
+<script>
+    function toggle(){
+        var body = document.body;
+        var title = document.getElementById("page title");
+        var button = document.getElementById("switch button");
+
+        if (body.style.backgroundColor === "black")
+            {
+                body.style.backgroundColor = "white";
+                body.style.color = "black";
+                title.innerHTML = "Light Mood";
+                button.innerHTML = "Switch to Dark Mood";
+            }
+
+            else
+            {
+                body.style.backgroundColor = "black";
+                body.style.color = "white";
+                title.innerHTML = "Dark Mood";
+                button.innerHTML = "Switch to Light Mood";
+       }   
+    }
+</script>
+</body>
+ 
+ 
+</html>
