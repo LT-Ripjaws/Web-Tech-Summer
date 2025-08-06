@@ -24,4 +24,14 @@ function validateForm() {
     } else {
         ageError.textContent = "";
     }
+
+    var username = document.getElementById("username").value.trim();
+    var usernameError = document.getElementById("usernameError");
+    if (username === "") {
+        usernameError.textContent = "Please enter the username field.";
+        isValid = false;
+    } else {
+        usernameError.textContent = "";
+        isValid = true;
+}
 }
