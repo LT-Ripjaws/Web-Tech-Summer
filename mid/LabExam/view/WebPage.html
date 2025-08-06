@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Clinic Patient Registration</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/script.js" defer></script>
+    </head>
+
+    <body>
+        
+            <h1 id="h1">Clinic Patient Registration</h1>
+      
+
+        <form  id="regForm" onsubmit="return validateForm()">
+            <label for="patientName">Full Name:</label><br>
+            <input type="text" id="patientName" name="Name" required><br>
+            <div id="nameError" style="color: red;"></div><br>
+
+
+            <label for="age">Age:</label><br>
+            <input type="number" id="age" name="age" required min="0"><br>
+            <label id="ageError" style="color: red;"></label><br>
+
+            <label for="phone">Phone Number:</label><br>
+            <input type="text" id="phone" name="phone" required><br>
+            <label id="phoneError" style="color: red;"></label><br>
+
+            <label for="email">Email:</label><br>
+            <input type="text"id="email" name="email" required><br>
+            <label id="emailError" style="color: red;"></label><br>
+
+            <label for="Insurance">Insurance Provider:</label><br>
+            <select style="border: 1px solid #ccc; width:100%; padding: 12px 20px;" id="Insurance" name="Insurance" required>
+                <option value="">Select your insurance provider</option>
+                <option value="provider1">Provider1</option>
+                <option value="provider2">Provider2</option>
+                <option value="provider3">Provider3</option>
+            </select><br>
+            <label id="insuranceError" style="color: red;"></label><br>
+
+            <label for="policynumber">Insurance Policy Number:</label><br>
+            <input type="text" id="policynumber" name="policynumber" required><br>
+            <label for="policyError" id="policyError" style="color: red;"></label><br>
+
+            <h1  id="h1"> Additional Information</h1>
+
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username" required><br>
+            <label for="usernameError" id="usernameError" style="color: red;"></label><br>
+
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" required><br>
+            <label for="passwordError" id="passwordError" style="color: red;"></label><br>
+
+            <label for="confirmPassword">Confirm Password:</label><br>
+            <input type="password" id="confirmPassword" name="confirmPassword" required><br>
+            <label for="confirmPasswordError" id="confirmPasswordError" style="color: red;"></label><br>
+
+            <button id="button" type="submit">Register</button>      
+        </form>
+
+        
+
+        
+    </body>
+</html>

@@ -1,0 +1,35 @@
+body {
+    background-color: rgb(215, 229, 235);
+}
+
+#regForm{
+    background-color: aliceblue;
+    margin:auto;
+    padding:30px;
+    width:400px;
+    border-radius: 10px;
+}
+
+input[type="text"], input[type="number"], input[type="password"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0; 
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+#h1{
+    text-align: center;
+    color:rgb(64, 115, 204)
+}
+
+#button{
+    background-color: royalblue;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
