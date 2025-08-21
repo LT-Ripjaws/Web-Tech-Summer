@@ -12,7 +12,7 @@
             <nav class="navbar">
                 <!-- Logo Section -->
                 <div class="logo-section">
-                    <a href="#">RetroRides</a>
+                    <a href="#"><img src="assets/images/logo.png" class="logo" alt="">RetroRides</a>
                 </div>
 
                 

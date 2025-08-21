@@ -7,13 +7,14 @@ main {
 
 /* ---------- Hero Section ---------- */
 .hero {
-    background: url("https://via.placeholder.com/1600x800") center/cover no-repeat;
+    background: url("images/hero-background.jpg") center/cover no-repeat;
+    background-position: top 25% right 0;
     height: 90vh;
     width:100%;
     display: flex;
     align-items: center;
     justify-content: flex-start; /* Align content left */
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     padding-left: 80px; /* Push content from edge */
 }
 
@@ -25,6 +26,7 @@ main {
 .hero h1 {
     font-size: 6rem;
     margin-bottom: 25px;
+   
    
 }
 
@@ -44,7 +46,7 @@ main {
 .hero-sub .divider {
     width: 2px;
     height: 60px;
-    background-color: #000000;
+    background-color: #ffffff;
 }
 
 /* Button styling */
