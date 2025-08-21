@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Clinic Patient Registration</title>
+        <link rel="stylesheet" href="../css/style.css">
+        
+    </head>
+
+    <body>
+        
+            <h1 id="h1">Clinic Patient Registration</h1>
+      
+    <div class="form-container-div">
+        <form  id="regForm" >
+            <label for="patientName">Full Name:</label><br>
+            <input type="text" id="patientName" name="name"><br>
+            <div id="nameError" style="color: red;"></div><br>
+
+
+            <label for="age">Age:</label><br>
+            <input type="number" id="age" name="age" min="0"><br>
+            <div id="ageError" style="color: red;"></div><br>
+
+            <label for="phone">Phone Number:</label><br>
+            <input type="text" id="phone" name="phone" ><br>
+            <div id="phoneError" style="color: red;"></div><br>
+
+            <label for="email">Email:</label><br>
+            <input type="text"id="email" name="email" ><br>
+            <div id="emailError" style="color: red;"></div><br>
+
+            <label for="insurance">Insurance Provider:</label><br>
+            <select style="border: 1px solid #ccc; width:100%; padding: 12px 20px;" id="insurance" name="insurance" >
+                <option value="">Select your insurance provider</option>
+                <option value="provider1">Provider1</option>
+                <option value="provider2">Provider2</option>
+                <option value="provider3">Provider3</option>
+            </select><br>
+            <div id="insuranceError" style="color: red;"></div><br>
+
+            <label for="policynumber">Insurance Policy Number:</label><br>
+            <input type="text" id="policynumber" name="policynumber" ><br>
+            <div  id="policyError" style="color: red;"></div><br>
+
+            <h1  id="h1"> Additional Information</h1>
+
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username" ><br>
+            <div id="usernameError" style="color: red;"></div><br>
+
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password"><br>
+            <div id="passwordError" style="color: red;"></div><br>
+
+            <label for="confirmPassword">Confirm Password:</label><br>
+            <input type="password" id="confirmPassword" name="confirmPassword"><br>
+            <div id="confirmPasswordError" style="color: red;"></div><br>
+
+            <button id="button" type="submit">Register</button>      
+        </form>
+    </div>
+        
+
+     <script src="../js/script.js" defer></script>   
+
+        
+    </body>
+</html>
