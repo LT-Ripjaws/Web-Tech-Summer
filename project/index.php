@@ -11,7 +11,28 @@
             </div>
         </section>
 
-        <!-- About Section -->
+
+    <!-- Featured Collection -->
+    <section class="featured">
+        <h1>Featured Classics</h1>
+        <div class="featured-cars">
+            <div class="car-card">
+                <img src="assets/images/featured/1967 Ford Mustang Fastback.png" alt="1967 Ford Mustang">
+                <h3>1967 Ford Mustang</h3>
+            </div>
+            <div class="car-card">
+                <img src="assets/images/featured/1959 cadillac eldorado.png" alt="1959 cadillac eldorado">
+                <h3>1959 cadillac eldorado</h3>
+            </div>
+            <div class="car-card">
+                <img src="assets/images/featured/mercedes-benz 300sl gullwing.png" alt="mercedes-benz 300sl gullwing">
+                <h3>mercedes-benz 300sl gullwing</h3>
+            </div>
+        </div>
+    </section>
+
+
+         <!-- About Section -->
     <section class="about">
         <div class="about-text">
             <h2>About RetroRides</h2>
@@ -22,28 +43,25 @@
             </p>
         </div>
         <div class="about-img">
-            <img src="https://via.placeholder.com/500x300" alt="About RetroRides">
+            <img src="assets/images/logo.png" alt="About RetroRides">
         </div>
     </section>
 
-    <!-- Featured Collection -->
-    <section class="featured">
-        <h2>Featured Classics</h2>
-        <div class="featured-cars">
-            <div class="car-card">
-                <img src="https://via.placeholder.com/400x250" alt="Classic Car 1">
-                <h3>1969 Ford Mustang</h3>
+
+    <!-- showcase Section -->
+    <section class="showcase"> 
+        <div class="showcase-content">
+            <div class="showcase-img">
+                <img src="#" alt="Showcase Image">
             </div>
-            <div class="car-card">
-                <img src="https://via.placeholder.com/400x250" alt="Classic Car 2">
-                <h3>1971 Dodge Charger</h3>
-            </div>
-            <div class="car-card">
-                <img src="https://via.placeholder.com/400x250" alt="Classic Car 3">
-                <h3>1973 Porsche 911</h3>
-            </div>
+            <h1>BEST CARS ALL AROUND</h1>
+            <p>Browse our collection to find a classic car that will reflect your unique style and desires. BE VINTAGE.</p>
         </div>
+        
     </section>
+
+
+
 
     <!-- Call to Action -->
     <section class="cta">
