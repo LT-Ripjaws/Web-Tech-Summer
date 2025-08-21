@@ -1,5 +1,5 @@
 main {
-    padding-top: 80px; /* Adjust based on header height */
+    padding-top: 80px; 
     background-color: #f0f0f0;
     min-height: 100vh;
 }
@@ -13,9 +13,9 @@ main {
     width:100%;
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* Align content left */
+    justify-content: flex-start; 
     color: rgb(255, 255, 255);
-    padding-left: 80px; /* Push content from edge */
+    padding-left: 80px; 
 }
 
 .hero-content {
