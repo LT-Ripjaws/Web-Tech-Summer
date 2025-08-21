@@ -10,11 +10,12 @@
 .logo {
     width: 50px;
     height: 50px;
+    margin: 0 10px;
 }
 
 .logo-section a {
     text-decoration: none;
-    font-size: 24px;
+    font-size: 29px;
     font-weight: bold;
     color: #d6cbab; 
     cursor: pointer;
@@ -47,6 +48,10 @@ ul {
     list-style: none;
     display: flex;
     gap: 30px;
+}
+
+.nav-links {
+    margin-right: 80px;
 }
 
 .nav-links a:hover,
