@@ -1,6 +1,6 @@
 main {
     padding-top: 90px; 
-    background-color: #f0f0f0;
+    background-color: #e7e4dd;
     min-height: 100vh;
 }
 
@@ -132,7 +132,7 @@ main {
 }
 
 .about-text p {
-    font-size: 1rem;
+    font-size: 1.2rem;
     line-height: 1.6;
 }
 
@@ -146,8 +146,75 @@ main {
 /* ---------- Showcase Section ---------- */
 
 
-/* will add code here later */
+.showcase {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 0;
+    background-color: #f4f1e9;
+    flex-wrap: wrap;
+}
 
+.showcase-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 40px;
+    padding: 60px 50px;
+}
+
+.showcase-content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 300px;
+}
+
+.showcase-content h1 {
+    font-size: 2.5rem;
+    max-width: 300px;
+    margin-right: 20px;    
+}
+
+.showcase-content .showcase-img img{
+    width: 350px;
+    height: auto;
+}
+
+.showcase-content2 {
+    flex: 1;
+    font-size: 1.2rem;
+    min-width: 280px;
+    text-align: center;
+    background-color: #f4f1e9;}
+
+
+.showcase-content3{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}    
+
+
+.showcase-content3 .showcase-img3 img {
+   width: 100%;
+    height: auto;
+}
+
+.showcase-content3 .showcase-butt-img4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+}
+
+.showcase-content3 .showcase-butt-img4 img {
+    width: 700px;
+    height: auto;
+    margin-top: 20px;
+}
 
 
 

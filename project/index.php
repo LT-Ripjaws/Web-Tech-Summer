@@ -37,9 +37,14 @@
         <div class="about-text">
             <h2>About RetroRides</h2>
             <p>
-                RetroRides is your hub for classic cars that defined generations.  
+                RetroRides is your hub for classic cars that defined generations. Since 1947, we have been dedicated to preserving and celebrating automotive history.
                 From vintage American muscle to timeless European icons, our collection celebrates automotive history.  
-                Browse, admire, and relive the golden era of cars.
+                Browse, admire, and relive the golden era of cars to your heart's content.
+
+                loren ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
         </div>
         <div class="about-img">
@@ -52,14 +57,29 @@
     <section class="showcase"> 
         <div class="showcase-content">
             <div class="showcase-img">
-                <img src="#" alt="Showcase Image">
+                <img src="assets/images/showcaseimg.png" alt="Showcase Image">
             </div>
             <h1>BEST CARS ALL AROUND</h1>
             <p>Browse our collection to find a classic car that will reflect your unique style and desires. BE VINTAGE.</p>
         </div>
-        
+        <div class="showcase-content2">
+            <h2>Why Choose Us?</h2>
+            <p>We offer a curated selection of classic cars, each with a unique story and heritage. Our team is passionate about vintage automobiles and is here to help you find the perfect ride.</p>
+        </div>
+        <div class="showcase-content3">
+            <div class="showcase-img3">
+                <img src="assets/images/showcaseimg3.png" alt="Showcase Image">
+            </div>
+            <div class="showcase-butt-img4">
+                <p>Click here and enjoy the brands</p>
+                <a href="pages/collection.php" class="btn-main">Explore Collection</a>
+                <img src="assets/images/showcaseimg4.png" alt="Showcase Image">
+            </div>
+        </div>
     </section>
 
+
+    
 
 
 
