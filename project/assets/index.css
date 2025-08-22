@@ -94,6 +94,7 @@ main {
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
+
 }
 
 .car-card {
@@ -134,9 +135,9 @@ main {
     align-items: center;
     justify-content: center;
     padding: 40px 0;
-    background-color: #000000;
+    background-color: #0c0b0c;
     flex-wrap: wrap;
-    color: white;
+    color: #e6dccd;
 }
 
 .showcase-content {
@@ -146,6 +147,8 @@ main {
     text-align: center;
     gap: 40px;
     padding: 60px 50px;
+    background-color: rgba(65, 65, 65, 0.3);
+    border-radius: 20px;
 }
 
 .showcase-content p {
@@ -170,13 +173,16 @@ main {
     font-size: 1.2rem;
     min-width: 280px;
     text-align: center;
-    background-color: #000000;}
+    background-color: #0c0b0c;}
 
 
 .showcase-content3{
     display:flex;
     justify-content: center;
     align-items: center;
+    background-color: rgba(65, 65, 65, 0.3);
+    border-radius: 20px;
+    width: 90%;
 }    
 
 
@@ -210,7 +216,7 @@ main {
 
 .showcase-content3 .showcase-butt-img4 .tnb p {
     font-size: 1.2rem;
-    color: #f5f2f2;
+    color: #e6dccd;
 }
 
 
@@ -219,13 +225,13 @@ main {
     margin-bottom:10px;
     width: 75%;
     height: 2px;
-    background-color: #333;
+    background-color: #e6dccd;
 }
 
 .showcase .showcase-content3 .vertical-border {
     width: 2px;
     height: 650px;
-    background-color: #333;
+    background-color: #e6dccd;
     margin: 0 20px;
 }
 
@@ -235,7 +241,7 @@ main {
 .slideshow {
     padding: 10px 50px;
     text-align: center;
-    background: linear-gradient(to right, #444343, #242322);
+    background-color: #0c0b0c;
 }
 
 .slideshow h2 {
@@ -251,6 +257,7 @@ main {
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0px 2px 8px rgba(0,0,0,0.3);
+
 }
 
 .slides {
@@ -293,6 +300,7 @@ main {
     gap: 40px;
     padding: 60px 50px;
     flex-wrap: wrap;
+    background-color: #715A5A;
 }
 
 .about-text {
