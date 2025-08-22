@@ -7,6 +7,7 @@
                     <p>Discover timeless classics, beautifully preserved.</p>
                     <div class="divider"></div>
                     <a href="pages/collection.php" class="btn-main">Explore Collection</a>
+                    
                 </div>
             </div>
         </section>
@@ -32,7 +33,72 @@
     </section>
 
 
-         <!-- About Section -->
+   
+
+
+    <!-- showcase Section -->
+    <section class="showcase"> 
+        <div class="showcase-content">
+            <div class="showcase-img">
+                <img src="assets/images/showcaseimg.png" alt="Showcase Image">
+            </div>
+            <h1>BEST CARS ALL AROUND</h1>
+            <p>Browse our collection to find a classic car that will reflect your unique style and desires. BE VINTAGE.</p>
+        </div>
+
+         <div class="border"></div>
+
+        <div class="showcase-content2">
+            <h2>Why Choose Us?</h2>
+            <p>We offer a curated selection of classic cars, each with a unique story and heritage. Our team is passionate about vintage automobiles and is here to help you find the perfect ride.</p>
+        </div>
+
+        <div class="border"></div>
+     
+
+        <div class="showcase-content3">
+            <div class="showcase-img3">
+                <img src="assets/images/showcaseimg3.png" alt="Showcase Image">
+            </div>
+
+            <div class="vertical-border"></div>
+
+            <div class="showcase-butt-img4">
+                <div class="tnb">
+                    <p>~Click here and enjoy the brands!~</p>
+                    <a href="pages/collection.php" class="btn-main">Explore Collection</a>
+                </div>
+                
+                <img src="assets/images/showcaseimg4.png" alt="Showcase Image">
+            </div>
+        </div>
+    </section>
+
+
+    
+
+    <!-- Slideshow Section -->
+    <section class="slideshow">
+        <h2> Take a sneak peak at the collection </h2>
+        <div class="slider">
+            <div class="slides">
+                <img src="assets/images/slideshow/1963 Corvette Split Window Coupe.gif" alt="Slide 1">
+                <img src="assets/images/slideshow/FORD MUSTANG 1967 FASTBACK.gif" alt="Slide 2">
+                <img src="assets/images/slideshow/Mercedes-Benz 300 SL Gullwing.gif" alt="Slide 3">
+                <img src="assets/images/slideshow/Rocking Ragtop - 1962 VW Beetle - FRVRBRK.gif" alt="Slide 4">
+            </div>
+
+            <button class="prev">&#10094;</button>
+            <button class="next">&#10095;</button>
+        </div>
+
+    </section>
+
+
+    <!-- Testimonial Section -->
+     
+
+      <!-- About Section -->
     <section class="about">
         <div class="about-text">
             <h2>About RetroRides</h2>
@@ -53,36 +119,6 @@
     </section>
 
 
-    <!-- showcase Section -->
-    <section class="showcase"> 
-        <div class="showcase-content">
-            <div class="showcase-img">
-                <img src="assets/images/showcaseimg.png" alt="Showcase Image">
-            </div>
-            <h1>BEST CARS ALL AROUND</h1>
-            <p>Browse our collection to find a classic car that will reflect your unique style and desires. BE VINTAGE.</p>
-        </div>
-        <div class="showcase-content2">
-            <h2>Why Choose Us?</h2>
-            <p>We offer a curated selection of classic cars, each with a unique story and heritage. Our team is passionate about vintage automobiles and is here to help you find the perfect ride.</p>
-        </div>
-        <div class="showcase-content3">
-            <div class="showcase-img3">
-                <img src="assets/images/showcaseimg3.png" alt="Showcase Image">
-            </div>
-            <div class="showcase-butt-img4">
-                <p>Click here and enjoy the brands</p>
-                <a href="pages/collection.php" class="btn-main">Explore Collection</a>
-                <img src="assets/images/showcaseimg4.png" alt="Showcase Image">
-            </div>
-        </div>
-    </section>
-
-
-    
-
-
-
     <!-- Call to Action -->
     <section class="cta">
         <h2>Join the RetroRides Community</h2>
@@ -91,4 +127,5 @@
     </section>
 
     </main>
+
 <?php include 'includes/footer.php'; ?>
