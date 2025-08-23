@@ -17,18 +17,21 @@
     <section class="featured">
         <h1>Featured Classics</h1>
         <div class="featured-cars">
-            <div class="car-card">
-                <img src="assets/images/featured/1967 Ford Mustang Fastback.png" alt="1967 Ford Mustang">
-                <h3>1967 Ford Mustang</h3>
+            <div class="glass"> 
+                 <div class="car-card">
+                    <img src="assets/images/featured/1967 Ford Mustang Fastback.png" alt="1967 Ford Mustang">
+                    <h3>1967 Ford Mustang</h3>
+                </div>
+                <div class="car-card">
+                    <img src="assets/images/featured/1959 cadillac eldorado.png" alt="1959 cadillac eldorado">
+                    <h3>1959 cadillac eldorado</h3>
+                </div>
+                <div class="car-card">
+                    <img src="assets/images/featured/mercedes-benz 300sl gullwing.png" alt="mercedes-benz 300sl gullwing">
+                    <h3>mercedes-benz 300sl gullwing</h3>
+                </div>
             </div>
-            <div class="car-card">
-                <img src="assets/images/featured/1959 cadillac eldorado.png" alt="1959 cadillac eldorado">
-                <h3>1959 cadillac eldorado</h3>
-            </div>
-            <div class="car-card">
-                <img src="assets/images/featured/mercedes-benz 300sl gullwing.png" alt="mercedes-benz 300sl gullwing">
-                <h3>mercedes-benz 300sl gullwing</h3>
-            </div>
+            
         </div>
     </section>
 
@@ -80,17 +83,21 @@
     <!-- Slideshow Section -->
     <section class="slideshow">
         <h2> Take a sneak peak at the collection </h2>
-        <div class="slider">
-            <div class="slides">
-                <img src="assets/images/slideshow/1963 Corvette Split Window Coupe.gif" alt="Slide 1">
-                <img src="assets/images/slideshow/FORD MUSTANG 1967 FASTBACK.gif" alt="Slide 2">
-                <img src="assets/images/slideshow/Mercedes-Benz 300 SL Gullwing.gif" alt="Slide 3">
-                <img src="assets/images/slideshow/Rocking Ragtop - 1962 VW Beetle - FRVRBRK.gif" alt="Slide 4">
-            </div>
+        <div class="glass">
+            <div class="slider">
+                <div class="slides">
+                    <img src="assets/images/slideshow/1963 Corvette Split Window Coupe.gif" alt="Slide 1">
+                    <img src="assets/images/slideshow/FORD MUSTANG 1967 FASTBACK.gif" alt="Slide 2">
+                    <img src="assets/images/slideshow/Mercedes-Benz 300 SL Gullwing.gif" alt="Slide 3">
+                    <img src="assets/images/slideshow/Rocking Ragtop - 1962 VW Beetle - FRVRBRK.gif" alt="Slide 4">
+                </div>
 
             <button class="prev">&#10094;</button>
             <button class="next">&#10095;</button>
         </div>
+
+        </div>
+        
 
     </section>
 
