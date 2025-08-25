@@ -1,3 +1,7 @@
+html{
+    scroll-behavior: smooth;
+}
+
 main {
     padding-top: 90px; 
     background-color: #e7e4dd;
@@ -16,6 +20,10 @@ main {
     justify-content: flex-start; 
     color: rgb(255, 255, 255);
     padding-left: 80px;
+    box-shadow: 5px 5px 10px 2px white;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 2px 100px rgba(252, 151, 19, 0.61);
 
 }
 
@@ -32,7 +40,8 @@ main {
 .hero h1 {
     font-size: 6rem;
     margin-bottom: 25px;
-   
+    opacity: 0;
+    animation: fadeInDown 1s ease forwards;
    
 }
 
@@ -48,6 +57,9 @@ main {
 .hero-sub p {
     font-size: 2.2rem;
     margin: 0;
+    opacity: 0;
+    animation: fadeInDown 1s ease forwards;
+    animation-delay: 0.3s;
 }
 
 /* Divider line */
@@ -55,6 +67,9 @@ main {
     width: 90px;
     height: 2px;
     background-color: #ffffff;
+    opacity: 0;
+    animation: fadeInDown 1s ease forwards;
+    animation-delay: 0.6s;
 }
 
 /* Button styling */
@@ -67,24 +82,37 @@ main {
     font-weight: bold;
     font-size: 18px;
     transition: background 0.3s;
+    opacity: 0;
+    animation: fadeInDown 1s ease forwards;
+    animation-delay: 0.9s;
 }
 
 .btn-main:hover {
-    background-color: #d4a015;
+    background-color: #ca770a;
 }
 
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px); /* start slightly above */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* normal position */
+  }
+}
 
 
 /* ---------- Featured Cars ---------- */
 .featured {
     padding: 60px 50px;
     text-align: center;
-    background: url("images/featured/featured-background.jpg") center/cover no-repeat;
+    background: url("images/featured/featured-background.jpg") center/cover no-repeat;  /* i set a car bg image here */
     box-shadow: inset 0px 2px 8px rgba(0,0,0,0.8);
     position: relative;
 }
 
-.featured::before {
+.featured::before { /* i did this for the dark overlay effect */
     content: "";
     position: absolute;
     inset: 0;
@@ -110,7 +138,7 @@ main {
     z-index: 1;
 }
 
-.glass {
+.glass {  /* this section here is for the glassmorphism effect on the car cards container */
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -133,7 +161,7 @@ main {
 }
 
 .car-card:hover {
-    transform: scale(1.05);
+    transform: scale(1.07);
 }
 
 .car-card img {
@@ -148,25 +176,66 @@ main {
 
 }
 
+.autoShowText {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: text-appear 1s ease-out both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 40%;
+}
 
+@keyframes text-appear {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
+.imageReveal {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+    filter: grayscale(1) blur(3px);
+    animation: image-appear 0.7s ease-out both; 
+    animation-timeline: view(); 
+    animation-range: entry 0% cover 40%;    
+}
 
+@keyframes image-appear {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.98);
+        filter: grayscale(1) blur(3px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: none;
+    }
+}
 
 /* ---------- Showcase Section ---------- */
 
 
-.showcase {
+.showcase {  /* this is the entire container of the showcase section */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 40px 0;
-    background-color: #0c0b0c;
+    background-color: #0e0d0d;
     flex-wrap: wrap;
     color: #e6dccd;
+    box-shadow: 0 -8px 50px rgba(252, 151, 19, 0.61);
+    position: relative;
+    z-index: 2;
+
 }
 
-.showcase-content {
+.showcase-content {  /* the top part */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -184,7 +253,7 @@ main {
 }
 
 .showcase-content h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     max-width: 300px;
     margin-right: 20px;    
 }
@@ -194,7 +263,7 @@ main {
     height: auto;
 }
 
-.showcase-content2 {
+.showcase-content2 {   /* the middle part */
     flex: 1;
     font-size: 1.2rem;
     min-width: 280px;
@@ -202,7 +271,7 @@ main {
     background-color: #0c0b0c;}
 
 
-.showcase-content3{
+.showcase-content3{  /* the bottom part */
     display:flex;
     justify-content: center;
     align-items: center;
@@ -212,28 +281,58 @@ main {
 }    
 
 
-.showcase-content3 .showcase-img3 img {
-   width: 100%;
+.showcase-content3 .showcase-img3 img {  /* the left image in the bottom part */
+    width: 850px;
     height: auto;
+    margin: 40px;
+    border-radius: 10px;
+    opacity: 0;
+    transform: translateX(-80px);
+    filter: blur(4px);
+    animation: slideInLeft 1s ease-out forwards;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
 }
 
-.showcase-content3 .showcase-butt-img4 {
+.showcase-content3 .showcase-butt-img4 {  /* the right part in the bottom part */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     gap:10px;
+    opacity: 0;
+    transform: translateX(80px);
+    filter: blur(4px);
+    animation: slideInRight 1s ease-out forwards;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+@keyframes slideInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+        filter: none;
+    }
+}
+
+@keyframes slideInRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+        filter: none;
+    }
 }
 
 
-
-.showcase-content3 .showcase-butt-img4 img {
-    width: 700px;
+.showcase-content3 .showcase-butt-img4 img { /* the car image in the right part of the bottom part */
+    width: 600px;
     height: auto;
     margin-top: 20px;
+    border-radius: 10px;
 }
 
-.showcase-content3 .showcase-butt-img4 .tnb {
+.showcase-content3 .showcase-butt-img4 .tnb { 
     margin: 40px 0 0 50px;
     display: flex;
     flex-direction: column;
@@ -252,13 +351,31 @@ main {
     width: 75%;
     height: 2px;
     background-color: #e6dccd;
+    opacity: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: border-appear 0.8s ease-out both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 50%;
 }
+
+@keyframes border-appear {
+    from {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+    to {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+}
+
 
 .showcase .showcase-content3 .vertical-border {
     width: 2px;
     height: 650px;
     background-color: #e6dccd;
-    margin: 0 20px;
+    margin: 0 40px;
 }
 
 
@@ -268,13 +385,26 @@ main {
     padding: 10px 50px;
     text-align: center;
     background: url("images/featured/slideshow-bg.jpg") center/cover no-repeat;
+    width:100%;
 }
 
-.slideshow h2 {
-    font-size: 2rem;
+.slideshow h1 {
+    font-size: 3rem;
     margin-bottom: 20px;
     color: #e6dccd;
+    
 }
+
+.slideshow .glass-container {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    margin: auto;
+}
+
 
 .slider {
     position: relative;
@@ -299,8 +429,6 @@ main {
 .slider button {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
-    
     color: white;
     border: none;
     padding: 12px;
@@ -356,9 +484,165 @@ main {
 
 
 
+/*---------- Testimonial Section ---------- */
+.testimonials {
+  padding: 60px 50px;
+  background: url("images/testimonials.jpg") center/cover no-repeat;
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+
+.testimonial-slider {
+    overflow:hidden;
+}
+
+.testimonials h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: #e6dccd;
+}
+
+.testimonials h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #f5c518;
+}
 
 
+.testimonial-track {
+  display: flex;
+  gap: 20px;
+  animation: scrollTestimonials 20s linear infinite;
+}
 
+.testimonial-track:hover {
+  animation-play-state: paused; 
+}
+
+.testimonial-card {
+  flex: 0 0 300px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+  transition: transform 0.3s;
+}
+
+.testimonial-card:hover {
+  transform: scale(1.08);
+}
+
+.testimonial-card p {
+  font-size: 1.1rem;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.testimonial-card h4 {
+  font-size: 1rem;
+  color: #f5c518;
+  font-weight: bold;
+}
+
+
+@keyframes scrollTestimonials {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); 
+  }
+}
+
+/* ---------- Brands Section ---------- */
+.brands {
+    background: #0e0d0d;
+    padding: 60px 20px;
+    text-align: center;
+    position: relative;
+}
+
+.brands-title {
+    font-size: 3rem;
+    color: #e6dccd;
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+}
+
+.brands-title .line {
+  display:block;
+  width:60%;
+  height:3px;
+  margin:12px auto 0;
+  border-radius:2px;
+  background:linear-gradient(90deg, #fc9713, #e6dccd);
+  opacity:0;
+  transform:scaleX(0);
+  transform-origin:left;
+  animation: expandLine 1s ease-out forwards;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+@keyframes expandLine {
+    from {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+    to {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+}
+
+.brands-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.brands-logos img {
+    width: 150px;
+    height: auto;
+    filter: grayscale(100%);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: filter 0.3s ease-in-out;
+
+   
+    animation: logoReveal 0.8s ease-out forwards;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+
+.brands-logos img:nth-child(1) { animation-delay: 0.1s; }
+.brands-logos img:nth-child(2) { animation-delay: 0.3s; }
+.brands-logos img:nth-child(3) { animation-delay: 0.5s; }
+.brands-logos img:nth-child(4) { animation-delay: 0.7s; }
+.brands-logos img:nth-child(5) { animation-delay: 0.9s; }
+
+@keyframes logoReveal {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.brands-logos img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.08);
+}
 
 
 

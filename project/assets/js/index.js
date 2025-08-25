@@ -22,4 +22,6 @@ function updateSlide() {
 setInterval(() => {
     slideIndex = (slideIndex + 1) % totalSlides;
     updateSlide();
-}, 15000);
+}, 30000);
+
+
