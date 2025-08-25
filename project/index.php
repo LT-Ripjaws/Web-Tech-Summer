@@ -192,6 +192,27 @@
     </section>
 
 
+
+    <!-- Newsletter Section -->
+     <section class="newsletter">
+        <div class="newsletter-content">
+            <h2 class="autoShowText">Subscribe to Our Newsletter</h2>
+            <p class="autoShowText">
+                 Get the latest updates, exclusive offers, and news delivered straight to your inbox.
+            </p>
+            <form class="newsletter-form" action="#" method="post">
+                <input type="email" name="email" placeholder="Enter your email" required>
+                <button type="submit" class="btn-main">Subscribe</button>
+            </form>
+        </div>
+
+        <div class="newsletter-image">
+            <img src="assets/images/car-newsletter.png" alt="Car Image">
+        </div>
+     </section>
+
+
+
     <!-- Call to Action -->
     <section class="cta">
         <h2>Join the RetroRides Community</h2>
