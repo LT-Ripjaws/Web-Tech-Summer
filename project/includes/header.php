@@ -4,15 +4,14 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>RetroRides</title>
-        <link rel="stylesheet" href="assets/header.css">
-        <link rel="stylesheet" href="assets/index.css">
+        <link rel="stylesheet" href="/Web-Tech-Summer/project/assets/css/header.css">
     </head>
     <body>
         <header>
             <nav class="navbar">
                 <!-- Logo Section -->
                 <div class="logo-section">
-                    <a href="#"><img src="assets/images/logo.png" class="logo" alt="">RetroRides</a>
+                    <a href="/Web-Tech-Summer/project/index.php"><img src="/Web-Tech-Summer/project/assets/images/logo.png" class="logo" alt="">RetroRides</a>
                 </div>
 
                 
@@ -27,7 +26,7 @@
 
                 <!-- Login Button -->
                 <div class="nav-btn">
-                    <a href="#"><button class="btn">Login</button></a>
+                    <a href="/Web-Tech-Summer/project/pages/login.php"><button class="btn">Login</button></a>
                 </div>
             </nav>
         </header>

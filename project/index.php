@@ -1,4 +1,5 @@
 <?php include 'includes/header.php'; ?>
+<link rel="stylesheet" href="/Web-Tech-Summer/project/assets/css/index.css">
     <main>
         <!-- Hero Section/banner -->
         <section class="hero">
