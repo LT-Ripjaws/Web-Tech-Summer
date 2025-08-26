@@ -20,15 +20,15 @@
         <h1 class="autoShowText">Featured Classics</h1>
         <div class="featured-cars">
             <div class="glass "> 
-                 <div class="car-card imageReveal">
+                 <div class="car-card">
                     <img src="assets/images/featured/1967 Ford Mustang Fastback.png" alt="1967 Ford Mustang" >
                     <h3>1967 Ford Mustang</h3>
                 </div>
-                <div class="car-card imageReveal">
+                <div class="car-card">
                     <img src="assets/images/featured/1959 cadillac eldorado.png" alt="1959 cadillac eldorado" >
                     <h3>1959 cadillac eldorado</h3>
                 </div>
-                <div class="car-card imageReveal">
+                <div class="car-card">
                     <img src="assets/images/featured/mercedes-benz 300sl gullwing.png" alt="mercedes-benz 300sl gullwing">
                     <h3>mercedes-benz 300sl gullwing</h3>
                 </div>
