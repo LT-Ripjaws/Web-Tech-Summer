@@ -1,5 +1,6 @@
 <?php include("../includes/header.php"); ?>
 <link rel="stylesheet" href="/Web-Tech-Summer/project/assets/css/login.css">
+<link rel="stylesheet" href="/Web-Tech-Summer/project/assets/css/components.css">
 
 
 <?php 
@@ -59,7 +60,7 @@
         </div>
 
         <div class="right-part">
-            <h2>Welcome back fellow rider!</h2>
+            <h1>Welcome back fellow rider!</h1>
             <p> Sign in your account </p>
             <p style="color:green; font-weight:bold;">
                 <?php if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($nameErr) && empty($passErr) && isset($_POST["login"])) {
