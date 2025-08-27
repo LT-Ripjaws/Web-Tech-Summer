@@ -46,17 +46,6 @@
     animation-delay: 0.3s;
 }
 
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-30px); /* start slightly above */
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0); /* normal position */
-  }
-}
-
 
 /* Divider line */
 .hero-sub .divider {
@@ -154,46 +143,7 @@
 
 }
 
-.autoShowText {
-    opacity: 0;
-    transform: translateY(50px);
-    animation: text-appear 1s ease-out both;
-    animation-timeline: view();
-    animation-range: entry 10% cover 40%;
-}
 
-@keyframes text-appear {
-    from {
-        opacity: 0;
-        transform: translateY(100px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.imageReveal {
-    opacity: 0;
-    transform: translateY(30px) scale(0.98);
-    filter: grayscale(1) blur(3px);
-    animation: image-appear 0.7s ease-out both; 
-    animation-timeline: view(); 
-    animation-range: entry 0% cover 40%;    
-}
-
-@keyframes image-appear {
-    from {
-        opacity: 0;
-        transform: translateY(30px) scale(0.98);
-        filter: grayscale(1) blur(3px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-        filter: none;
-    }
-}
 
 /* ---------- Showcase Section ---------- */
 
@@ -686,18 +636,6 @@
   animation-timeline: --newsletter;
   animation-range: entry 0% cover 40%;
 }
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(100px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
 
 
 /* ---------- Call To Action ---------- */

@@ -1,4 +1,5 @@
-li, a, button{
+/* lists and anchors */
+li, a {
   font-weight: 500;
   font-size: 16px;
   text-decoration: none;
@@ -8,7 +9,7 @@ li, a, button{
   cursor: pointer;
 }
 
-
+/* our buttons */
 .btn-main {
   text-decoration: none;
   padding: 12px 24px;
@@ -27,7 +28,7 @@ li, a, button{
     box-shadow: 0 5px 15px rgba(252, 151, 19, 0.5);
     background: linear-gradient(90deg, #fc9713, #805009); }
 
-
+/* this is for a glass effect behind smth */
 .glass {
   backdrop-filter: blur(10px);
   background: rgba(255,255,255,0.1);
