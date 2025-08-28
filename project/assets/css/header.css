@@ -35,7 +35,7 @@ ul {
 .nav-links a:hover,
 .nav-links a.active {
     color: #242322;  
-    background-color: bisque;
+    background: var(--hover);
     padding: 10px 20px;
     border-radius: 5px;
 }

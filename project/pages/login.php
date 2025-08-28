@@ -61,11 +61,6 @@
         <div class="right-part">
             <h1>Welcome back Rider!</h1>
             <p> Sign in your account </p>
-            <p style="color:green; font-weight:bold;">
-                <?php if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($nameErr) && empty($passErr) && isset($_POST["login"])) {
-                        echo $success;} ?> 
-            </p>
-
             <form action="login.php" method="post">
                 <div class="input-field">
                      <input type="text" name="username" placeholder="Enter your username/email">

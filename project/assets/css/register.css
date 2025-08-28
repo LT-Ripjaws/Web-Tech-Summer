@@ -15,5 +15,8 @@ main {
     text-align: center;
 }
 
+.register-card h1 {
+    color: var(--primary);
+}
 
     
