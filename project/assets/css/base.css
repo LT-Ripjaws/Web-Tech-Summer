@@ -55,4 +55,6 @@ p {
   --accent: linear-gradient(90deg, #fc9713, #eeb156);
   --dark: #242322;
   --background: linear-gradient(to right, #444343, #242322);
+  --background2: linear-gradient(135deg, #000000, #46423f);
+  --panel: linear-gradient(135deg, #46423f, #000000);
 }

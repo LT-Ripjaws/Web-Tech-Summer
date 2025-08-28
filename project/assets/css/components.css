@@ -38,3 +38,41 @@ li, a {
   padding: 20px;
 }
 
+.input-field {
+    margin-bottom: 20px;
+}
+
+.input-field input {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background: #1f1f1f;
+    color: var(--secondary);
+    transition: border 0.3s ease, background 0.3s ease;
+}
+
+.input-field input:focus {
+    background: #2a2a2a;
+    border: 1px solid var(--primary);
+}
+
+.signup-link {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #ccc;
+    text-align: center;
+}
+
+.signup-link a {
+    color: var(--primary);
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.signup-link a:hover {
+    color: var(--secondary);
+}
