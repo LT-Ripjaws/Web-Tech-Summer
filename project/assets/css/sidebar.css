@@ -42,6 +42,9 @@ body{
     padding: 25px 20px;
     align-items: flex-start;
     justify-content: space-between;
+    background: var(--background);
+    box-shadow:  0 8px 20px rgba(0,0,0,0.6);
+    border-radius: 15px; 
     
 }
 
@@ -67,7 +70,7 @@ body{
 
 
 .sidebar.collapsed .sidebar-header .sidebar-toggle {
-    transform: translate(-4px, 65px);
+    transform: translate(-4px, 55px);
 }
 
 .sidebar-header .toggler:hover {
@@ -200,6 +203,8 @@ body{
         z-index: 20;
         padding: 8xp 10px;
         border-radius: 16px;
+        background: var(--background);
+        box-shadow:  0 8px 20px rgba(0,0,0,0.6);
     }
 
     .sidebar-header .sidebar-panel-name .sidebar-logo img {

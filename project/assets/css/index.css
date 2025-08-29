@@ -632,12 +632,13 @@
 .slider button {
     position: absolute;
     top: 50%;
-    color: white;
+    color: rgb(255, 255, 255);
     border: none;
     padding: 12px;
     cursor: pointer;
     border-radius: 50%;
     font-size: 18px;
+    background: transparent;
 }
 
 .slider .prev { left: 10px; }
