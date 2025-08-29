@@ -1,30 +1,30 @@
 /* ---------- Hero Section ---------- */
 .hero {
     background: url("../images/hero-background.jpg") center/cover no-repeat;
-    background-position: top 25% right 0;
-    height: 90vh;
+    background-position: center top;
+    min-height: 85vh;
     width:100%;
     display: flex;
     align-items: center;
     justify-content: flex-start; 
     color: rgb(255, 255, 255);
-    padding-left: 80px;
+    padding-left: 60px;
     position: relative;
     z-index: 2;
-    box-shadow: 0 2px 100px rgba(252, 151, 19, 0.61);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.6);
 
 }
 
 .hero-content {
-    max-width: 800px;
+    max-width: 700px;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    gap:20px
 }
 
 .hero h1 {
-    font-size: 6rem;
-    margin-bottom: 25px;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    margin-bottom: 20px;
     opacity: 0;
     animation: fadeInDown 1s ease forwards;
 }
@@ -34,12 +34,12 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 20px;
+    gap: 15px;
     
 }
 
 .hero-sub p {
-    font-size: 2.2rem;
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
     margin: 0;
     opacity: 0;
     animation: fadeInDown 1s ease forwards;
@@ -49,7 +49,7 @@
 
 /* Divider line */
 .hero-sub .divider {
-    width: 90px;
+    width: 80px;
     height: 2px;
     background-color: #ffffff;
     opacity: 0;
@@ -64,15 +64,90 @@
     animation-delay: 0.9s;
 }
 
+/* ---------- Hero Section Responsiveness ---------- */
 
+/* Tablets (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .hero {
+        padding-left: 40px;
+        height: 80vh;
+        background-position: center top;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-sub p {
+        font-size: 1.8rem;
+    }
+}
+
+/* Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+    .hero {
+        justify-content: center;
+        padding-left: 20px;
+        padding-right: 20px;
+        text-align: center;
+        height: 70vh;
+        background-position: center;
+    }
+        
+
+    .hero-content {
+        align-items: center;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .hero-sub {
+        align-items: center;
+    }
+
+    .hero-sub p {
+        font-size: 1.4rem;
+    }
+
+    .hero-sub .divider {
+        margin: 0 auto;
+    }
+
+    .btn-main {
+        font-size: 0.9rem;
+        padding: 10px 18px;
+    }
+}
+
+/* Small phones (max-width: 480px) */
+@media (max-width: 480px) {
+    .hero {
+        height: 60vh;
+        background-size: cover;      
+        background-position: center top;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-sub p {
+        font-size: 1.1rem;
+    }
+
+    .btn-main {
+        padding: 8px 15px;
+    }
+}
 
 
 /* ---------- Featured Cars ---------- */
 .featured {
-    padding: 60px 50px;
+    padding: 50px 5%;
     text-align: center;
     background: url("../images/featured/featured-background.jpg") center/cover no-repeat;  /* i set a car bg image here */
-    box-shadow: inset 0px 2px 8px rgba(0,0,0,0.8);
     position: relative;
 }
 
@@ -86,8 +161,8 @@
 
 
 .featured h1 {
-    font-size: 3rem;
-    margin-bottom: 30px;
+    font-size: clamp(1.8rem, 3vw, 3rem);
+    margin-bottom: 25px;
     color: var(--secondary);
     position: relative;
     z-index: 1;
@@ -107,17 +182,22 @@
 
 .glass {  /* this section here is for the glassmorphism effect on the car cards container */
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
+    justify-content: space-between;
+    gap:20px;
     backdrop-filter: blur(10px);
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
+    border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    padding: 20px;}
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
 .car-card {
-    margin: 20px;
+    flex: 1 1 260px;
+    max-width: 320px;
     background: linear-gradient(to right, #ffffff, #242322);;
     border-radius: 10px;
     box-shadow: 0px 2px 8px rgba(0,0,0,0.2);
@@ -125,6 +205,7 @@
     width: 280px;
     transition: transform 0.3s;
     cursor:pointer;
+    padding-top: 12px;
 }
 
 .car-card:hover {
@@ -133,16 +214,90 @@
 
 .car-card img {
     width: 100%;
-    height: 180px;
+    height: auto;
+    max-height: 200px;
     object-fit: contain;
 }
 
 .car-card h3 {
-    padding: 15px;
-    font-size: 1.1rem;
-
+    padding: 12px;
+    font-size: 1rem;
 }
 
+/* Tablets and below */
+@media (max-width: 992px) {
+  .featured {
+    padding: 40px 5%;
+  }
+
+  .featured h1 {
+    font-size: clamp(1.6rem, 4vw, 2.5rem);
+  }
+
+  .glass {
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .car-card {
+    flex: 1 1 45%;   /* 2 per row */
+    max-width: 100%;
+  }
+
+  .car-card h3 {
+    font-size: 0.95rem;
+  }
+}
+
+/* Small tablets & big phones */
+@media (max-width: 768px) {
+  .featured {
+    padding: 30px 25%;
+    background-position: top;
+  }
+
+  .featured h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+
+  .car-card {
+    flex: 1 1 100%;  /* full width */
+    max-width: 100%;
+  }
+
+  .car-card img {
+    max-height: 180px;
+  }
+}
+
+/* Phones */
+@media (max-width: 480px) {
+  .featured {
+    padding: 25px 10%;
+    background-size: contain;
+    background-color: #000; 
+  }
+
+  .featured h1 {
+    font-size: 1.6rem;
+  }
+
+  .glass {
+    padding: 10px;
+    gap: 10px;
+    border-radius: 8px;
+  }
+
+  .car-card {
+    border-radius: 8px;
+  }
+
+  .car-card h3 {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}
 
 
 /* ---------- Showcase Section ---------- */
@@ -153,11 +308,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 40px 0;
-    background-color: #0e0d0d;
+    padding: 3rem 1rem;
+    background: var(--panel);
     flex-wrap: wrap;
     color: var(--secondary);
-    box-shadow: 0 -8px 50px rgba(252, 151, 19, 0.61);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
     position: relative;
     z-index: 2;
 
@@ -168,52 +323,55 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    gap: 40px;
-    padding: 60px 50px;
-    background-color: rgba(65, 65, 65, 0.3);
-    border-radius: 20px;
+    gap: 2rem;
+    padding: 3rem 2rem;
+    border-radius: 1.25rem;
+    flex-wrap: wrap;
 }
 
 .showcase-content p {
     font-size: 1.2rem;
     line-height: 1.6;
-    max-width: 300px;
+    max-width: 28ch;
 }
 
 .showcase-content h1 {
-    font-size: 3rem;
-    max-width: 300px;
-    margin-right: 20px;    
+    font-size: clamp(2rem, 5vw, 3rem);
+    max-width: 30ch;
+    margin-right: 1rem;      
 }
 
 .showcase-content .showcase-img img{
-    width: 350px;
+    max-width: 100%;
+    width: clamp(220px, 40vw, 350px);
     height: auto;
 }
 
 .showcase-content2 {   /* the middle part */
     flex: 1;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     min-width: 280px;
     text-align: center;
-    background-color: #0c0b0c;}
+    padding: 2rem;
+    }
 
 
 .showcase-content3{  /* the bottom part */
     display:flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(65, 65, 65, 0.3);
-    border-radius: 20px;
+    border-radius: 1.25rem;
     width: 90%;
+    flex-wrap: wrap;
+    gap: 2rem;
 }    
 
 
 .showcase-content3 .showcase-img3 img {  /* the left image in the bottom part */
-    width: 850px;
+    width: clamp(280px, 60vw, 850px);
     height: auto;
-    margin: 40px;
-    border-radius: 10px;
+    margin: 2rem;
+    border-radius: 0.6rem;
     opacity: 0;
     transform: translateX(-80px);
     filter: blur(4px);
@@ -227,7 +385,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    gap:10px;
+    gap: 1rem;
     opacity: 0;
     transform: translateX(80px);
     filter: blur(4px);
@@ -254,28 +412,27 @@
 
 
 .showcase-content3 .showcase-butt-img4 img { /* the car image in the right part of the bottom part */
-    width: 600px;
+    width: clamp(220px, 48vw, 600px);
     height: auto;
-    margin-top: 20px;
-    border-radius: 10px;
+    margin-top: 1.25rem;
+    border-radius: 0.6rem;
 }
 
 .showcase-content3 .showcase-butt-img4 .tnb { 
-    margin: 40px 0 0 50px;
+    margin: 2.5rem 0 0 0.5rem;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 1.25rem;
 }
 
 .showcase-content3 .showcase-butt-img4 .tnb p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--secondary);
 }
 
 
 .showcase .border {
-    margin-top:20px;
-    margin-bottom:10px;
+    margin:1.25rem 0;
     width: 75%;
     height: 2px;
     background-color: var(--secondary);
@@ -301,10 +458,128 @@
 
 .showcase .showcase-content3 .vertical-border {
     width: 2px;
-    height: 650px;
+    height: auto;
+    min-height: 300px;
+    flex: 0 0 2px;
     background-color: var(--secondary);
-    margin: 0 40px;
+    margin: 0 2rem;
 }
+
+
+/* --- Tablets --- */
+@media (max-width: 1024px) {
+  .showcase-content {
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px 30px;
+  }
+
+  .showcase-content h1 {
+    font-size: 2.5rem;
+    margin: 0;
+  }
+
+  .showcase-content .showcase-img img {
+    width: 280px;
+  }
+
+  .showcase-content3 {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .showcase-content3 .showcase-img3 img {
+    width: 600px;
+    margin: 20px auto;
+  }
+
+  .showcase-content3 .showcase-butt-img4 img {
+    width: 450px;
+    margin: 20px auto;
+  }
+
+  .showcase-content3 .vertical-border {
+    display: none;
+  }
+
+  .showcase-content3 .tnb {
+    margin: 20px auto;
+    align-items: center;
+  }
+}
+
+/* --- Small tablets --- */
+@media (max-width: 768px) {
+  .showcase-content p {
+    font-size: 1rem;
+    max-width: 90%;
+  }
+
+  .showcase-content h1 {
+    font-size: 2rem;
+  }
+
+  .showcase-content .showcase-img img {
+    width: 220px;
+  }
+
+  .showcase-content3 .showcase-img3 img {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .showcase-content3 .showcase-butt-img4 img {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+/* --- Phones --- */
+@media (max-width: 480px) {
+  .showcase {
+    padding: 20px 0;
+  }
+
+  .showcase-content {
+    padding: 20px;
+    gap: 15px;
+  }
+
+  .showcase-content h1 {
+    font-size: 1.6rem;
+  }
+
+  .showcase-content p {
+    font-size: 0.95rem;
+  }
+
+  .showcase-content .showcase-img img {
+    width: 180px;
+  }
+
+  .showcase-content2 {
+    padding: 20px;
+    font-size: 1rem;
+  }
+
+  .showcase-content3 .showcase-img3 img,
+  .showcase-content3 .showcase-butt-img4 img {
+    max-width: 90%;
+  }
+
+  .showcase-content3 .tnb p {
+    font-size: 1rem;
+  }
+
+  .showcase-content3 .tnb a {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}
+
+
+
 
 
 /* ---------- SlideShow Section ---------- */
@@ -317,7 +592,7 @@
 }
 
 .slideshow h1 {
-    font-size: 3rem;
+    font-size: clamp(2rem, 5vw, 2.5rem);
     margin-bottom: 20px;
     color: var(--secondary);
     
@@ -379,38 +654,43 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 40px;
-    padding: 60px 50px;
+    gap: 50px;
+    padding: 80px 60px;
     flex-wrap: wrap;
     background: linear-gradient(to right, #444343, #242322);
     color: var(--secondary);
+    text-align: left;
 }
 
 .about-text {
     flex: 1;
-    min-width: 280px;
+    min-width: 300px;
 }
 
 .about-text h2 {
-    font-size: 2rem;
-    margin-bottom: 15px;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 20px;
     color: White;
 
 }
 
 .about-text p {
-    font-size: 1.2rem;
+    font-size: clamp(0.9rem, 1.8vw, 1rem);
     line-height: 1.6;
 }
 
 .about-img img {
-    width: 300px;
+    width: clamp(250px, 35vw, 400px);
     height: auto;
-    border-radius: 10px;
-    box-shadow: 0px 2px 8px rgba(0,0,0,0.2);
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-
+.about-img img:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 6px 18px rgba(0,0,0,0.35);
+}
 
 /*---------- Testimonial Section ---------- */
 .testimonials {
@@ -426,7 +706,7 @@
 }
 
 .testimonials h1 {
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 2.5rem);
   margin-bottom: 10px;
   color: var(--secondary);
 }
@@ -494,7 +774,7 @@
 }
 
 .brands-title {
-    font-size: 3rem;
+    font-size: clamp(2rem, 5vw, 2.5rem);
     color: var(--secondary);
     margin-bottom: 40px;
     position: relative;
@@ -579,12 +859,12 @@
 .newsletter {
   background: linear-gradient(to right, #444343, #242322);
   color: var(--secondary);
-  padding: 80px 10%;
+  padding: 80px 8%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 60px;
-
+  flex-wrap: wrap;
  
   view-timeline-name: --newsletter;
   view-timeline-axis: block;
@@ -596,12 +876,12 @@
 }
 
 .newsletter-content h2 {
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
   margin-bottom: 20px;
 }
 
 .newsletter-content p {
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
   margin-bottom: 30px;
   color: #bbb;
 }
@@ -609,10 +889,12 @@
 .newsletter-form {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 .newsletter-form input {
   flex: 1;
+  min-width: 200px;
   padding: 14px 18px;
   border-radius: 8px;
   border: none;
@@ -623,11 +905,12 @@
 
 .newsletter-image {
   flex: 1;
+  min-width: 300px;
   text-align: right;
 }
 
 .newsletter-image img {
-  width: 700px;
+  width: clamp(300px, 90%, 700px);
   height:auto;
   opacity: 0;
   transform: translateX(100px);
