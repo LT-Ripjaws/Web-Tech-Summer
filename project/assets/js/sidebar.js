@@ -1,9 +1,11 @@
 const sidebar =  document.querySelector(".sidebar");
 const sidebarToggle = document.querySelector(".sidebar-toggle");
 const menuToggle = document.querySelector(".menu-toggle");
+const container = document.querySelector(".full-container");
 
 sidebarToggle.addEventListener("click", () => {
     sidebar.classList.toggle("collapsed");
+    container.classList.toggle("collapsed");
 })
 
 

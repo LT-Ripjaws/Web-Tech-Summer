@@ -14,8 +14,9 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&" />
     </head>
     <body>
+        <div class="full-container">
+       
         <?php include("../../includes/sidebar.php"); ?>
-
         <!-- admin dashboard section -->
         <main>
             <header class="topbar">
@@ -93,6 +94,7 @@
             </div>
             </section>
         </main>
+        </div>
     <script src="/Web-Tech-Summer/project/assets/js/sidebar.js"></script>
     </body>
 </html>

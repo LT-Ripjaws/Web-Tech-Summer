@@ -1,15 +1,21 @@
 main {
-    margin-left: 280px;
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    transition: margin-left 0.3s ease;
 }
 
-.sidebar.collapsed ~ main {
-    margin-left: 95px; 
+.full-container.collapsed  {
+  grid-template-columns: 85px 1fr;
 }
 
+.full-container{
+    display: grid;
+    grid-template-columns: 270px 1fr;
+    column-gap: 12px;                  
+    padding: 12px;                      
+    min-height: 100vh;
+    transition: grid-template-columns 0.4s ease;
+}
 
 .topbar {
 background: var(--background);
@@ -127,9 +133,12 @@ background: #f9fafb;
 
 
 @media (max-width: 1024px) {
-    main {
-        margin-left: 0; 
+    
+    .full-container{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
     }
+
     .sidebar {
         position: relative;  
         width: 100%;
