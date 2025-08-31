@@ -72,3 +72,4 @@
                 </div>
              </main>
         </div>
+        <script src="/Web-Tech-Summer/project/assets/js/sidebar.js"></script>
