@@ -17,21 +17,21 @@
         <!--primary top nav-->
         <ul class="nav-list primary-nav">
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/Web-Tech-Summer/project/pages/Admin/admin-dash.php" class="nav-link">
                     <span class="nav-icon material-symbols-rounded">dashboard</span>
                     <span class="nav-label">Dashboard</span>
                 </a>
                 <span class="nav-tooltip">Dashboard</span>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/Web-Tech-Summer/project/pages/Admin/team.php" class="nav-link">
                     <span class="nav-icon material-symbols-rounded">group</span>
                     <span class="nav-label">Team</span>
                 </a>
                 <span class="nav-tooltip">Team</span>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/Web-Tech-Summer/project/pages/Admin/cars.php" class="nav-link">
                     <span class="nav-icon material-symbols-rounded">car_rental</span>
                     <span class="nav-label">Manage Cars</span>
                 </a>
