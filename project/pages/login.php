@@ -1,23 +1,23 @@
-<?php include("../includes/header.php"); ?>
+<?php include("../includes/header.php"); 
+session_start();
+require_once __DIR__ . "/../includes/db/config.php";
+?>
 <link rel="stylesheet" href="/Web-Tech-Summer/project/assets/css/login.css">
 
 
 <?php 
-    $nameErr = "";
-    $passErr = "";
-    $success = "";
+    session_start();
 
+    $nameErr = $passErr = $success = "";
+    
     function test_input($data) {
-        $data = trim($data);            
-        $data = stripslashes($data);     
-        return $data;   
-    }
+    return htmlspecialchars(stripslashes(trim($data)));
+}
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {   
 
         $user = test_input($_POST["username"]);
         $password = test_input($_POST["password"]);
-
         $valid = true;
 
         
@@ -33,14 +33,38 @@
         }
 
         if ($valid) {
-             if($user == "admin" && $password == "1234")
-              {
-                   $success = "Welcome back, " .$user. "!";
-              } else {
-                    $passErr = "Invalid username or password";
+            $stmt = $conn->prepare("SELECT employee_id, name, email, password, role, status 
+                                FROM employees 
+                                WHERE email = ? AND role = 'admin' LIMIT 1");
+            $stmt->bind_param("s", $user);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            if ($result->num_rows === 1) {
+            $row = $result->fetch_assoc();
+
+             if (password_verify($password, $row['password'])) {
+                if ($row['status'] !== "active") {
+                    $passErr = "Account is not active.";
+                } else {
+                    
+                    session_regenerate_id( true); 
+                    $_SESSION['admin_id'] = $row['employee_id'];
+                    $_SESSION['admin_name'] = $row['name'];
+                    $_SESSION['role'] = $row['role'];
+
+                    header("Location: Admin/admin-dash.php");
+                    exit();
                 }
+            } else {
+                $passErr = "Invalid username or password";
+            }
+        } else {
+            $passErr = "Invalid username or password";
         }
+        
     }
+}
 
 ?>
 

@@ -1,3 +1,12 @@
+<?php
+require_once("../../includes/db/config.php");
+
+$result = $conn->query("SELECT * FROM employees ORDER BY joined DESC");
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -55,21 +64,23 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>
-                            <div class="employee-info">
-                                <img src="employee1.jpg" alt="employee" class="avatar">
-                                <div>
-                                <span class="name">a name</span>
-                                <span class="email">email@retrorides.com</span>
-                                <span class="phone">+0182-xxxxx</span>
+                    <?php if ($result && $result->num_rows > 0): ?>
+                    <?php while($row = $result->fetch_assoc()): ?>
+                        <tr>
+                            <td>
+                                <div class="employee-info">
+                                    <img src="employee1.jpg" alt="employee" class="avatar">
+                                    <div>
+                                        <span class="name"><?= $row['name']; ?></span>
+                                        <span class="email"><?= $row['email']; ?></span>
+                                        <span class="phone"><?= $row['phone']; ?></span>
+                                    </div>
                                 </div>
-                            </div>
-                        </td>
-                        <td>Sales Executive</td>
-                        <td>Sales</td>
-                        <td>Jan 12, 2021</td>
-                        <td><span class="status active">Active</span></td>
+                            </td>
+                            <td><?= $row['role']; ?></td>
+                            <td><?= $row['department']; ?></td>
+                            <td><?= date("M d, Y", strtotime($row['joined'])); ?></td>
+                            <td><span class="status <?= strtolower($row['status']); ?>"><?= $row['status']; ?></span></td>
                         <td class="actions">
                         <button class="btn-main small">Edit</button>
                         <button class="btn-main small">Promote</button>
@@ -77,7 +88,10 @@
                         <button class="btn-main small danger">Delete</button>
                         </td>
                     </tr>
-                    
+                     <?php endwhile; ?>
+                <?php else: ?>
+                    <tr><td colspan="6">No employees yet.</td></tr>
+                <?php endif; ?>
                     </tbody>
                 </table>
                 </section>
@@ -89,29 +103,29 @@
 <div class="modal" id="addEmployeefunc">
   <div class="form-content">
     <h2>Add New Employee</h2>
-    <form>
+    <form action="add_employee.php" method="POST">
       <label>Name</label>
-      <input type="text" required>
+      <input type="text" name="name" required>
       
       <label>Email</label>
-      <input type="email" required>
+      <input type="email" name="email" required>
       
       <label>Phone</label>
-      <input type="text">
+      <input type="text" name="phone">
       
       <label>Role</label>
-      <input type="text" required>
+      <input type="text" name="role" required>
       
       <label>Department</label>
-      <select required>
+      <select name="department" required>
         <option value="sales">Sales</option>
-        <option value="service">Service</option>
+        <option value="mechanic">Mechanic</option>
         <option value="finance">Finance</option>
         <option value="admin">Administration</option>
       </select>
       
       <label>Status</label>
-      <select>
+      <select name="status">
         <option value="active">Active</option>
         <option value="inactive">Inactive</option>
         <option value="leave">On Leave</option>
