@@ -35,29 +35,30 @@ require_once __DIR__ . "/../includes/db/config.php";
         if ($valid) {
             $stmt = $conn->prepare("SELECT employee_id, name, email, password, role, status 
                                 FROM employees 
-                                WHERE email = ? AND role = 'admin' LIMIT 1");
+                                WHERE email = ? LIMIT 1");
             $stmt->bind_param("s", $user);
             $stmt->execute();
             $result = $stmt->get_result();
 
-            if ($result->num_rows === 1) {
-            $row = $result->fetch_assoc();
-
-             if (password_verify($password, $row['password'])) {
-                if ($row['status'] !== "active") {
-                    $passErr = "Account is not active.";
-                } else {
-                    
-                    session_regenerate_id( true); 
-                    $_SESSION['admin_id'] = $row['employee_id'];
-                    $_SESSION['admin_name'] = $row['name'];
-                    $_SESSION['role'] = $row['role'];
-
-                    header("Location: Admin/admin-dash.php");
-                    exit();
-                }
-            } else {
+             if ($row = $result->fetch_assoc()) {
+            if (!password_verify($password, $row['password'])) {
                 $passErr = "Invalid username or password";
+            } elseif ($row['status'] !== "active") {
+                $passErr = "Account is not active";
+            } else {
+                
+                session_regenerate_id(true);
+                $_SESSION['user_id']   = $row['employee_id'];
+                $_SESSION['user_name'] = $row['name'];
+                $_SESSION['role']      = $row['role'];
+
+              
+                if ($row['role'] === "admin") {
+                    header("Location: Admin/admin-dash.php");
+                } else {
+                    header("Location: Employee/employee-dash.php");
+                }
+                exit;
             }
         } else {
             $passErr = "Invalid username or password";
