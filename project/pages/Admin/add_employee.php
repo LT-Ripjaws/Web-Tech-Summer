@@ -9,10 +9,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $role       = $_POST['role'];
     $department = $_POST['department'];
     $status     = $_POST['status'];
-
+    $hash_pass = password_hash("default123", PASSWORD_DEFAULT);
     
-    $sql = "INSERT INTO employees (name, email, phone, role, department, joined, status)
-            VALUES ('$name', '$email', '$phone', '$role', '$department', NOW(), '$status')";
+    $sql = "INSERT INTO employees (name, email, password, phone, role, department, joined, status)
+            VALUES ('$name', '$email', '$hash_pass', '$phone', '$role', '$department', NOW(), '$status')";
 
     if ($conn->query($sql) === TRUE) {
         echo "New employee added successfully!";

@@ -40,25 +40,29 @@ require_once __DIR__ . "/../includes/db/config.php";
             $stmt->execute();
             $result = $stmt->get_result();
 
-             if ($row = $result->fetch_assoc()) {
-            if (!password_verify($password, $row['password'])) {
-                $passErr = "Invalid username or password";
-            } elseif ($row['status'] !== "active") {
-                $passErr = "Account is not active";
-            } else {
-                
-                session_regenerate_id(true);
-                $_SESSION['user_id']   = $row['employee_id'];
-                $_SESSION['user_name'] = $row['name'];
-                $_SESSION['role']      = $row['role'];
+            if ($result->num_rows === 1) {
+            $row = $result->fetch_assoc();
 
-              
-                if ($row['role'] === "admin") {
-                    header("Location: Admin/admin-dash.php");
+            // Verify password
+            if (password_verify($password, $row['password'])) {
+                if ($row['status'] !== "active") {
+                    $passErr = "Account is not active.";
                 } else {
-                    header("Location: Employee/employee-dash.php");
+                    // ✅ Login successful
+                    session_regenerate_id(true); // prevent session fixation
+                    $_SESSION['admin_id'] = $row['employee_id'];
+                    $_SESSION['admin_name'] = $row['name'];
+                    $_SESSION['role'] = $row['role'];
+
+                    if ($row['role'] === 'admin') {
+                        header("Location: Admin/admin-dash.php");
+                    } else {
+                        header("Location: Employee/employee-dash.php");
+                    }
+                    exit();
                 }
-                exit;
+            } else {
+                $passErr = "Invalid username or password";
             }
         } else {
             $passErr = "Invalid username or password";
