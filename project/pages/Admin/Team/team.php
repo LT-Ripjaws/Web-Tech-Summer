@@ -1,5 +1,5 @@
 <?php
-require_once("../../includes/db/config.php");
+require_once("../../../includes/db/config.php");
 
 $result = $conn->query("SELECT * FROM employees ORDER BY joined DESC");
 
@@ -23,7 +23,7 @@ $result = $conn->query("SELECT * FROM employees ORDER BY joined DESC");
     </head>
     <body>
         <div class="full-container">
-            <?php include("../../includes/sidebar.php"); ?>
+            <?php include("../../../includes/sidebar.php"); ?>
              <main>
                 <header class="topbar">
                     <h1>Team Management</h1>
@@ -111,10 +111,16 @@ $result = $conn->query("SELECT * FROM employees ORDER BY joined DESC");
       <input type="email" name="email" required>
       
       <label>Phone</label>
-      <input type="text" name="phone">
+      <input type="number" name="phone">
       
       <label>Role</label>
-      <input type="text" name="role" required>
+      <select name="role" required>
+        <option value="sales">Sales</option>
+        <option value="mechanic">Mechanic</option>
+        <option value="support">Support</option>
+        <option value="other">Other</option>
+        <option value="admin">Administration</option>
+      </select>
       
       <label>Department</label>
       <select name="department" required>

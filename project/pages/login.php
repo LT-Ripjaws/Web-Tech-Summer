@@ -6,7 +6,7 @@ require_once __DIR__ . "/../includes/db/config.php";
 
 
 <?php 
-    session_start();
+   
 
     $nameErr = $passErr = $success = "";
     
@@ -43,13 +43,12 @@ require_once __DIR__ . "/../includes/db/config.php";
             if ($result->num_rows === 1) {
             $row = $result->fetch_assoc();
 
-            // Verify password
+           
             if (password_verify($password, $row['password'])) {
                 if ($row['status'] !== "active") {
                     $passErr = "Account is not active.";
                 } else {
-                    // ✅ Login successful
-                    session_regenerate_id(true); // prevent session fixation
+                    session_regenerate_id(true); 
                     $_SESSION['admin_id'] = $row['employee_id'];
                     $_SESSION['admin_name'] = $row['name'];
                     $_SESSION['role'] = $row['role'];

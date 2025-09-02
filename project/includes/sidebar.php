@@ -24,7 +24,7 @@
                 <span class="nav-tooltip">Dashboard</span>
             </li>
             <li class="nav-item">
-                <a href="/Web-Tech-Summer/project/pages/Admin/team.php" class="nav-link">
+                <a href="/Web-Tech-Summer/project/pages/Admin/Team/team.php" class="nav-link">
                     <span class="nav-icon material-symbols-rounded">group</span>
                     <span class="nav-label">Team</span>
                 </a>
