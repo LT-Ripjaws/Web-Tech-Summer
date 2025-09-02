@@ -71,21 +71,24 @@ $result = $conn->query("SELECT * FROM employees ORDER BY joined DESC");
                                 <div class="employee-info">
                                     <img src="employee1.jpg" alt="employee" class="avatar">
                                     <div>
-                                        <span class="name"><?= $row['name']; ?></span>
-                                        <span class="email"><?= $row['email']; ?></span>
-                                        <span class="phone"><?= $row['phone']; ?></span>
+                                        <span class="name"><?php echo $row['name']; ?></span>
+                                        <span class="email"><?php echo $row['email']; ?></span>
+                                        <span class="phone"><?php echo $row['phone']; ?></span>
                                     </div>
                                 </div>
                             </td>
-                            <td><?= $row['role']; ?></td>
-                            <td><?= $row['department']; ?></td>
-                            <td><?= date("M d, Y", strtotime($row['joined'])); ?></td>
-                            <td><span class="status <?= strtolower($row['status']); ?>"><?= $row['status']; ?></span></td>
+                            <td><?php echo $row['role']; ?></td>
+                            <td><?php echo $row['department']; ?></td>
+                            <td><?php echo date("M d, Y", strtotime($row['joined'])); ?></td>
+                            <td><span class="status <?php echo strtolower($row['status']); ?>"><?php echo $row['status']; ?></span></td>
                         <td class="actions">
                         <button class="btn-main small">Edit</button>
                         <button class="btn-main small">Promote</button>
                         <button class="btn-main small warning">Deactivate</button>
-                        <button class="btn-main small danger">Delete</button>
+                        <form action="delete_employee.php" method="POST" style="display:inline;">
+                            <input type="hidden" name="id" value="<?php echo $row['employee_id']; ?>">
+                            <button type="submit" class="btn-main small danger" onclick="return confirm('Are you sure you want to delete this employee?');">Delete</button>
+                        </form>
                         </td>
                     </tr>
                      <?php endwhile; ?>
