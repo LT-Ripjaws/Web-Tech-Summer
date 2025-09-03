@@ -245,6 +245,15 @@ main {
 }
 
 
+textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  resize: vertical;
+}
+
 /* Car statuses */
 .status.available {
     background: #2ecc71; 

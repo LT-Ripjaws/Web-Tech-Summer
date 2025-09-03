@@ -31,7 +31,7 @@
                 <span class="nav-tooltip">Team</span>
             </li>
             <li class="nav-item">
-                <a href="/Web-Tech-Summer/project/pages/Admin/cars.php" class="nav-link">
+                <a href="/Web-Tech-Summer/project/pages/Admin/Manage_Cars/cars.php" class="nav-link">
                     <span class="nav-icon material-symbols-rounded">car_rental</span>
                     <span class="nav-label">Manage Cars</span>
                 </a>
