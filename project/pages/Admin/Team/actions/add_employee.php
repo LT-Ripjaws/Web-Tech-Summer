@@ -1,6 +1,6 @@
 <?php
 
-require_once("../../../includes/db/config.php");
+require_once("../../../../includes/db/config.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name       = $_POST['name'];
@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($conn->query($sql) === TRUE) {
         echo "New employee added successfully!";
-        header("Location: team.php"); 
+        header("Location: ../team.php"); 
         exit();
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
