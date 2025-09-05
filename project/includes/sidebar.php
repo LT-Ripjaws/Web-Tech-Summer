@@ -4,7 +4,7 @@
             <div class="sidebar-logo">
                 <img src="/Web-Tech-Summer/project/assets/images/logo.png" alt="logo">
             </div>
-            <h2>Welcome!</h2>
+            <h2>Welcome Admin!</h2>
         </div>
         <button class="toggler sidebar-toggle">
             <span class="material-symbols-rounded">chevron_left</span>

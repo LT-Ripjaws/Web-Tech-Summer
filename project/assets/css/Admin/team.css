@@ -223,6 +223,7 @@ main {
 
 .form-content input[type="text"],
 .form-content input[type="number"],
+.form-content input[type="email"],
 .form-content select,
 .form-content textarea {
     padding: 0.6rem 0.9rem;

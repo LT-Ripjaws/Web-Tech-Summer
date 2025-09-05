@@ -1,6 +1,22 @@
 <?php
 session_start();
 
+if(!isset($_SESSION['admin_id']) && isset($_COOKIE['user-email']))
+{
+    $email = $conn->real_escape_string($_COOKIE['user-email']);
+    $sql = "SELECT employee_id, name, role FROM employees WHERE email = '$email' LIMIT 1";
+    $result = $conn->query($sql);
+
+    if ($result && $result->num_rows === 1)
+    {
+        $row = $result->fetch_assoc();
+        $_SESSION['admin_id'] = $row['employee_id'];
+        $_SESSION['admin_name'] = $row['name'];
+        $_SESSION['role'] = $row['role'];
+    }
+}
+
+
 if (!isset($_SESSION['admin_id']) || $_SESSION['role'] !== 'admin') {
     header("Location: ../login.php");
     exit();
@@ -31,6 +47,7 @@ if (!isset($_SESSION['admin_id']) || $_SESSION['role'] !== 'admin') {
             <header class="topbar">
                 <div>
                     <h1>Dashboard</h1>
+                    <p>Welcome, <?php echo htmlspecialchars($_SESSION['admin_name']); ?></p>
                 </div>
             </header>
 

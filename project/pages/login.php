@@ -8,11 +8,45 @@ require_once __DIR__ . "/../includes/db/config.php";
 <?php 
    
 
-    $nameErr = $passErr = $success = "";
+    $error = "";
     
     function test_input($data) {
     return htmlspecialchars(stripslashes(trim($data)));
 }
+    if (isset($_SESSION['admin_id'])) {
+    if ($_SESSION['role'] === 'admin') {
+        header("Location: Admin/admin-dash.php");
+    } else {
+        header("Location: Employee/employee-dash.php");
+    }
+    exit();
+    }
+
+    if (!isset($_SESSION['admin_id']) && isset($_COOKIE['user_email'])) {
+        $email = $conn->real_escape_string($_COOKIE['user_email']);
+        $sql = "SELECT employee_id, name, role, status FROM employees WHERE email = '$email' LIMIT 1";
+        $result = $conn->query($sql);
+
+        if ($result && $result->num_rows === 1) {
+            $row = $result->fetch_assoc();
+
+            if ($row['status'] === "active") {
+                
+                session_regenerate_id(true);
+                $_SESSION['admin_id']   = $row['employee_id'];
+                $_SESSION['admin_name'] = $row['name'];
+                $_SESSION['role']       = $row['role'];
+
+                
+                if ($row['role'] === 'admin') {
+                    header("Location: Admin/admin-dash.php");
+                } else {
+                    header("Location: Employee/employee-dash.php");
+                }
+                exit();
+            }
+        }
+    }
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {   
 
@@ -21,24 +55,16 @@ require_once __DIR__ . "/../includes/db/config.php";
         $valid = true;
 
         
-        if (empty($user)) {
-            $nameErr = "Username or Email is required";
+        if (empty($user) || empty($password)) {
+            $error = "All fields are required";
             $valid = false;
         }
 
-       
-        if (empty($password)) {
-            $passErr = "You did not provide a password";
-            $valid = false;
-        }
-
+        
         if ($valid) {
-            $stmt = $conn->prepare("SELECT employee_id, name, email, password, role, status 
-                                FROM employees 
-                                WHERE email = ? LIMIT 1");
-            $stmt->bind_param("s", $user);
-            $stmt->execute();
-            $result = $stmt->get_result();
+            $sql = "SELECT employee_id, name, email, password, role, status 
+                    FROM employees WHERE email = '$user' LIMIT 1";
+            $result = $conn->query($sql);
 
             if ($result->num_rows === 1) {
             $row = $result->fetch_assoc();
@@ -53,6 +79,10 @@ require_once __DIR__ . "/../includes/db/config.php";
                     $_SESSION['admin_name'] = $row['name'];
                     $_SESSION['role'] = $row['role'];
 
+                    if (isset($_POST['remember-me'])) {
+                    setcookie("user_email", $row['email'], time() + (86400 * 30), "/"); 
+                    }
+
                     if ($row['role'] === 'admin') {
                         header("Location: Admin/admin-dash.php");
                     } else {
@@ -61,10 +91,10 @@ require_once __DIR__ . "/../includes/db/config.php";
                     exit();
                 }
             } else {
-                $passErr = "Invalid username or password";
+                $error = "Invalid username or password";
             }
         } else {
-            $passErr = "Invalid username or password";
+            $error = "Invalid username or password";
         }
         
     }
@@ -89,15 +119,23 @@ require_once __DIR__ . "/../includes/db/config.php";
         <div class="right-part">
             <h1>Welcome back Rider!</h1>
             <p> Sign in your account </p>
+            <?php if (!empty($error)): ?>
+                <div class="error-box">
+                        <p><?php echo $error; ?></p>
+                </div>
+            <?php endif; ?>
             <form action="login.php" method="post">
                 <div class="input-field">
                      <input type="text" name="username" placeholder="Enter your username/email">
-                     <div style="color:red">* <?php echo $nameErr; ?></div>
+                     <div style="color:red">*</div>
                 </div>
                 <div class="input-field">
                     <input type="password" name="password" placeholder="Enter your password">
-                    <div style="color:red">* <?php echo $passErr; ?></div>
+                    <div style="color:red">*</div>
                 </div>
+                <div class="remember">
+                    <input type="checkbox" class="remember-me" name="remember-me"> Remember Me?
+                </div><br>
                 <button type="submit" class="btn-main" name="login">Login</button>
             </form>
 

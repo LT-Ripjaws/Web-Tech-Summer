@@ -79,6 +79,12 @@
     display: flex;
     gap: 10px;
 }
+.btn-main{
+    opacity: 0;
+    animation: fadeInDown 1s ease forwards;
+    animation-delay: 0.9s;
+}
+
 .btn-main.small {
     padding: 8px 14px;
     font-size: 0.9rem;
