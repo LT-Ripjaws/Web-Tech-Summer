@@ -23,20 +23,23 @@
 
                 <!-- Search & Filter -->
                 <div class="search">
-                    <input type="text" placeholder="Search by Model, Brand...">
-                    <select>
-                        <option value="">All Brands</option>
-                        <option value="toyota">Toyota</option>
-                        <option value="honda">Honda</option>
-                        <option value="bmw">BMW</option>
-                    </select>
-                    <select>
-                        <option value="">Status</option>
-                        <option value="available">Available</option>
-                        <option value="sold">Sold</option>
-                        <option value="maintenance">Maintenance</option>
-                    </select>
-                    <button class="btn-main">Search</button>
+                <input type="text" id="searchBar" placeholder="Search by Model, Brand...">
+
+                <select id="brandFilter">
+                    <option value="">All Brands</option>
+                    <option value="mercedes-benz">Mercedes</option>
+                    <option value="ford">Ford</option>
+                    <option value="bmw">BMW</option>
+                </select>
+
+                <select id="statusFilter">
+                    <option value="">Status</option>
+                    <option value="available">Available</option>
+                    <option value="sold">Sold</option>
+                    <option value="maintenance">Maintenance</option>
+                </select>
+
+                <button class="btn-main" id="searchBtn">Search</button>
                 </div>
 
 
@@ -45,12 +48,14 @@
                     <table>
                         <thead>
                             <tr>
+                                <th>Image</th>
                                 <th>VIN</th>
                                 <th>Brand</th>
                                 <th>Model</th>
                                 <th>Year</th>
                                 <th>Price</th>
                                 <th>Status</th>
+                                <th>Description</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -59,21 +64,31 @@
                             $result = $conn->query("SELECT * from cars ORDER BY year ASC"); ?>
                             <?php if ($result->num_rows > 0): ?>
                             <?php while ($row = $result->fetch_assoc()): ?> 
-                            <tr>
-                                <td><?php echo $row['vin']?></td>
-                                <td><?php echo $row['brand']?></td>
-                                <td><?php echo $row['model']?></td>
-                                <td><?php echo $row['year']?></td>
-                                <td><?php echo '$'.$row['price']?></td>
-                                <td><span class="status <?php echo strtolower($row['status']); ?>"><?php echo $row['status']?></span></td>
+                                <tr>
                                 <td>
-                                    <button class="btn-main small">Edit</button>
-                                    <a href="actions/delete_car.php?car_id=<?php echo $row['car_id'];?>"><button class="btn-main danger small">Delete</button></a>
+                                    <?php if (!empty($row['image'])): ?>
+                                    <img src="/Web-Tech-Summer/project/assets/images/uploads/<?php echo $row['image']; ?>" width="80" height="60" style="object-fit:contain;">
+                                    <?php else: ?>
+                                    No Image
+                                    <?php endif; ?>
                                 </td>
-                            </tr>
+                                <td class="vin"><?php echo $row['vin']?></td>
+                                <td class="brand"><?php echo $row['brand']?></td>
+                                <td class="model"><?php echo $row['model']?></td>
+                                <td class="year"><?php echo $row['year']?></td>
+                                <td class="price"><?php echo '$'.$row['price']?></td>
+                                <td><span class="status <?php echo strtolower($row['status']); ?>"><?php echo $row['status']?></span></td>
+                                <td class="description"><?php echo $row['description']?></td>
+                                <td>
+                                    <button class="btn-main small">Edit</button> <!-- will add it later -->
+                                    <a href="actions/delete_car.php?car_id=<?php echo $row['car_id'];?>">
+                                    <button class="btn-main danger small" onclick="return confirm('Are you sure you want to delete this car?')";>Delete</button>
+                                    </a>
+                                </td>
+                                </tr>
                             <?php endwhile; ?>
                             <?php else: ?>
-                            <tr><td colspan="6">No Cars yet.</td></tr>
+                            <tr><td colspan="9">No Cars yet.</td></tr>
                             <?php endif; ?>
                         </tbody>
                     </table>
@@ -85,8 +100,11 @@
         <div class="modal" id="addCarfunc">
         <div class="form-content">
             <h2 id="modalTitle">Add New Car</h2>
-            <form id="carForm" action="actions/add_car.php" method="POST">
+            <form id="carForm" action="actions/add_car.php" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="car_id" id="car_id">
+
+            <label>Car Image</label>
+            <input type="file" name="image" id="image" accept="image/*">
             
             <label>VIN</label>
             <input type="text" name="vin" id="vin" required>

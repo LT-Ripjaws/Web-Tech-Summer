@@ -65,7 +65,7 @@ $result = $conn->query("SELECT * FROM employees ORDER BY joined DESC");
                     </tr>
                     </thead>
                     <tbody>
-                    <?php if ($result && $result->num_rows > 0): ?>
+                    <?php if ($result->num_rows > 0): ?>
                     <?php while($row = $result->fetch_assoc()): ?>
                         <tr>
                             <td>

@@ -1,3 +1,7 @@
+<?php
+    $current_page = basename($_SERVER['PHP_SELF']);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -21,10 +25,10 @@
                 
                     <!-- Navigation Links -->
                     <ul class="nav-links">
-                        <li><a class="active" href="index.php">Home</a></li>
-                        <li><a href="pages/collection.php">Collection</a></li>
-                        <li><a href="about.php">About</a></li>
-                        <li><a href="contact.php">Contact Us</a></li>
+                        <li><a class="<?php echo $current_page == 'index.php' ? 'active' : '' ?>" href="/Web-Tech-Summer/project/index.php">Home</a></li>
+                        <li><a href="/Web-Tech-Summer/project/pages/collection.php" class="<?php echo $current_page == 'collection.php' ? 'active' : '' ?>">Collection</a></li>
+                        <li><a href="about.php" class="<?php echo $current_page == 'about.php' ? 'active' : '' ?>">About</a></li>
+                        <li><a href="contact.php" class="<?php echo $current_page == 'contact.php' ? 'active' : '' ?>">Contact Us</a></li>
                     </ul>
                 
 
@@ -32,7 +36,20 @@
                 <div class="nav-btn">
                     <a href="/Web-Tech-Summer/project/pages/login.php"><button class="btn-main">Login</button></a>
                 </div>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </nav>
         </header>
 
+        <script>
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.querySelector('.nav-links');
 
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('open');
+            });
+        </script>

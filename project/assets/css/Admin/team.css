@@ -221,8 +221,10 @@ main {
     font-weight: 500;
 }
 
-.form-content input,
-.form-content select {
+.form-content input[type="text"],
+.form-content input[type="number"],
+.form-content select,
+.form-content textarea {
     padding: 0.6rem 0.9rem;
     border-radius: 8px;
     border: 1px solid var(--secondary);
@@ -230,6 +232,18 @@ main {
     font-size: 0.95rem;
     width: 100%;
 }
+
+.form-content input[type="file"] {
+    background: var(--primary);
+    color: #fff;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+}
+.form-content input[type="file"]:hover{
+background: #e67e22; }
 
 .form-content input:focus,
 .form-content select:focus {
@@ -340,5 +354,8 @@ textarea {
 
     .employee-table table {
         min-width: 500px; 
+    }
+    .modal-content {
+        width: 70%;
     }
 }

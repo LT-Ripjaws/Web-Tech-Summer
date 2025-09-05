@@ -51,19 +51,12 @@
                 </a>
                 <span class="nav-tooltip">Analytics</span>
             </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <span class="nav-icon material-symbols-rounded">settings</span>
-                    <span class="nav-label">Settings</span>
-                </a>
-                <span class="nav-tooltip">Settings</span>
-            </li>
         </ul>
 
         <!--Secondary bottom nav-->
         <ul class="nav-list secondary-nav">
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/Web-Tech-Summer/project/pages/Admin/Profile/profile.php" class="nav-link">
                     <span class="nav-icon material-symbols-rounded">account_circle</span>
                     <span class="nav-label">Profile</span>
                 </a>
