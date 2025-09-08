@@ -10,8 +10,9 @@
         <title>RetroRides</title>
         <link rel="stylesheet" href="/Web-Tech-Summer/project/assets/css/base.css">
         <link rel="stylesheet" href="/Web-Tech-Summer/project/assets/css/components.css">
-        <link rel="stylesheet" href="/Web-Tech-Summer/project/assets/css/animations.css"> 
         <link rel="stylesheet" href="/Web-Tech-Summer/project/assets/css/header.css">
+        <link rel="stylesheet" href="/Web-Tech-Summer/project/assets/css/animations.css"> 
+        
 
     </head>
     <body>
@@ -48,13 +49,12 @@
             const hamburger = document.getElementById('hamburger');
             const navLinks = document.querySelector('.nav-links');
             const navBtn = document.querySelector('.nav-btn');
-            const body = document.body;
 
             hamburger.addEventListener('click', () => {
                 hamburger.classList.toggle('active');
                 navLinks.classList.toggle('open');
                 navBtn.classList.toggle('open');
-                body.classList.toggle('no-scroll');
+               
             });
 
            
@@ -63,7 +63,7 @@
                     hamburger.classList.remove('active');
                     navLinks.classList.remove('open');
                     navBtn.classList.remove('open');
-                    body.classList.remove('no-scroll');
+                    
                 }
             });
 
@@ -73,7 +73,7 @@
                     hamburger.classList.remove('active');
                     navLinks.classList.remove('open');
                     navBtn.classList.remove('open');
-                    body.classList.remove('no-scroll');
+                 
                 }
             });
         </script>

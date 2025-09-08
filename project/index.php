@@ -1,4 +1,5 @@
 <?php include 'includes/header.php'; ?>
+
 <link rel="stylesheet" href="/Web-Tech-Summer/project/assets/css/index.css">
     <main>
         <!-- Hero Section/banner -->
@@ -35,12 +36,12 @@
             </div>
             
         </div>
-    </section>
+    </section> 
 
 
 
     <!-- showcase Section -->
-    <section class="showcase"> 
+     <section class="showcase"> 
         <div class="showcase-content">
             <div class="showcase-img imageReveal">
                 <img src="assets/images/showcaseimg.png" alt="Showcase Image">
@@ -76,12 +77,12 @@
             </div>
         </div>
     </section>
-
+ 
 
     
 
     <!-- Slideshow Section -->
-    <section class="slideshow">
+     <section class="slideshow">
         <h1 class="autoShowText"> Take a sneak peak at the collection </h1>
         <div class="glass-container">
             <div class="slider autoShowText">
@@ -99,7 +100,7 @@
         </div>
         
 
-    </section>
+    </section> 
 
 
 
@@ -197,8 +198,8 @@
     <!-- Newsletter Section -->
      <section class="newsletter">
         <div class="newsletter-content">
-            <h2 class="autoShowText">Subscribe to Our Newsletter</h2>
-            <p class="autoShowText">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>
                  Get the latest updates, exclusive offers, and news delivered straight to your inbox.
             </p>
             <form class="newsletter-form" action="#" method="post">

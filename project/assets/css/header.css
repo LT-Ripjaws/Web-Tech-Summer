@@ -20,6 +20,7 @@
     background: var(--background);
     box-shadow: 0 8px 20px rgba(0,0,0,0.6);
     position: relative;
+    width:100%;
 }
 
 ul {
@@ -61,7 +62,7 @@ header {
     left: 0;
     width: 100%;
     z-index: 1000;
-    
+    max-width: 100vw;
 }
 
 .site-footer {
@@ -111,9 +112,7 @@ header {
     transition: max-height 0.3s ease-in-out;
 }
 
-body.no-scroll {
-    overflow: hidden;
-}
+
 
 @media (min-width: 1200px) {
     .navbar {
