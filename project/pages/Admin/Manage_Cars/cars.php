@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="/Web-Tech-Summer/project/assets/css/base.css">
         <link rel="stylesheet" href="/Web-Tech-Summer/project/assets/css/components.css">
         <link rel="stylesheet" href="/Web-Tech-Summer/project/assets/css/sidebar.css">
-        <link rel="stylesheet" href="/Web-Tech-Summer/project/assets/css/Admin/team.css">
+        <link rel="stylesheet" href="/Web-Tech-Summer/project/assets/css/Admin/cars.css">
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&" />
     </head>
@@ -16,13 +16,13 @@
         <div class="full-container">
             <?php include("../../../includes/sidebar.php"); ?>
              <main>
-                <div class="topbar">
+                <header class="topbar">
                     <h1>Car Management</h1>
                     <button class="btn-main">+ Add Car</button>
-                </div>
+                </header>
 
                 <!-- Search & Filter -->
-                <div class="search">
+                <section class="search">
                 <input type="text" id="searchBar" placeholder="Search by Model, Brand...">
 
                 <select id="brandFilter">
@@ -40,11 +40,12 @@
                 </select>
 
                 <button class="btn-main" id="searchBtn">Search</button>
-                </div>
+                </section>
 
 
                 <!-- Car Table -->
-                <div class="employee-table">
+                <section class="car-table">
+                    <div class="table-container">
                     <table>
                         <thead>
                             <tr>
@@ -78,7 +79,9 @@
                                 <td class="year"><?php echo $row['year']?></td>
                                 <td class="price"><?php echo '$'.$row['price']?></td>
                                 <td><span class="status <?php echo strtolower($row['status']); ?>"><?php echo $row['status']?></span></td>
-                                <td class="description"><?php echo $row['description']?></td>
+                                <td class="description" title="<?php echo $row['description']; ?>">
+                                    <?php echo substr($row['description'], 0, 50) . (strlen($row['description']) > 50 ? '...' : ''); ?>
+                                </td>
                                 <td>
                                     <button class="btn-main small">Edit</button> <!-- will add it later -->
                                     <a href="actions/delete_car.php?car_id=<?php echo $row['car_id'];?>">
@@ -92,7 +95,8 @@
                             <?php endif; ?>
                         </tbody>
                     </table>
-                </div>
+                    </div>
+                  </section>
              </main>
         </div>
 

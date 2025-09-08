@@ -47,9 +47,33 @@
         <script>
             const hamburger = document.getElementById('hamburger');
             const navLinks = document.querySelector('.nav-links');
+            const navBtn = document.querySelector('.nav-btn');
+            const body = document.body;
 
             hamburger.addEventListener('click', () => {
                 hamburger.classList.toggle('active');
                 navLinks.classList.toggle('open');
+                navBtn.classList.toggle('open');
+                body.classList.toggle('no-scroll');
+            });
+
+           
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.navbar') && navLinks.classList.contains('open')) {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('open');
+                    navBtn.classList.remove('open');
+                    body.classList.remove('no-scroll');
+                }
+            });
+
+            
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 992) {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('open');
+                    navBtn.classList.remove('open');
+                    body.classList.remove('no-scroll');
+                }
             });
         </script>

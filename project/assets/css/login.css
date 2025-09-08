@@ -96,6 +96,7 @@ main {
     .login-block {
         max-width: 900px;
         min-height: 500px;
+        max-height: 550px;
     }
 
     .right-part {
