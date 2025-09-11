@@ -38,7 +38,7 @@
                 <span class="nav-tooltip">Manage Cars</span>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/Web-Tech-Summer/project/pages/Admin/Bookings/bookings.php" class="nav-link">
                     <span class="nav-icon material-symbols-rounded">event_upcoming</span>
                     <span class="nav-label">Bookings</span>
                 </a>

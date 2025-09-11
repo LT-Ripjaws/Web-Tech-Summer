@@ -128,7 +128,7 @@ color: #ffffff;
 
 
 .table-grid tr:hover td {
-background: #f9fafb;
+background: rgba(88, 88, 88, 0.6);
 }
 
 

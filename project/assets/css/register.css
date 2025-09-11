@@ -20,4 +20,35 @@ main {
     margin-bottom: 0.5rem;
 }
 
+.error-box {
+    background: #ffe6e6;
+    color: #a94442;
+    border: 1px solid #f5c2c2;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.error-box p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.success-box {
+    background: #e9ffe6;
+    color: #57a942;
+    border: 1px solid #c2f5c6;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.success-box p {
+    margin: 0;
+    line-height: 1.5;
+}
     
