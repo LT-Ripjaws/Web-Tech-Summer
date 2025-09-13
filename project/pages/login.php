@@ -1,6 +1,6 @@
 <?php include("../includes/header.php"); 
 session_start();
-include("/../includes/db/config.php");
+include("../includes/db/config.php");
 ?>
 <link rel="stylesheet" href="/Web-Tech-Summer/project/assets/css/login.css">
 
@@ -119,6 +119,9 @@ function roleRedirection($role) {
             break;
         case 'customer':
             header("Location: Customer/dashboard.php");
+            break;
+        case 'mechanic':
+            header("Location: Mechanic/dashboard.php");
             break;
         default:
             header("Location: login.php?error=invalid_role");
