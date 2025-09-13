@@ -2,12 +2,12 @@
 session_start();
 include("../../../includes/db/config.php");
 
-if (!isset($_SESSION['admin_id']) || $_SESSION['role'] !== 'admin') {
+if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
     header("Location: ../../login.php");
     exit();
 }
 
-$admin_id = $_SESSION['admin_id'];
+$admin_id = $_SESSION['user_id'];
 $result = $conn->query("SELECT * FROM employees WHERE employee_id = $admin_id");
 $admin = $result->fetch_assoc();
 ?>

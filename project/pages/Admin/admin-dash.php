@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if(!isset($_SESSION['admin_id']) && isset($_COOKIE['user-email']))
+if(!isset($_SESSION['user_id']) && isset($_COOKIE['user-email']))
 {
     $email = $conn->real_escape_string($_COOKIE['user-email']);
     $sql = "SELECT employee_id, name, role FROM employees WHERE email = '$email' LIMIT 1";
@@ -10,21 +10,21 @@ if(!isset($_SESSION['admin_id']) && isset($_COOKIE['user-email']))
     if ($result && $result->num_rows === 1)
     {
         $row = $result->fetch_assoc();
-        $_SESSION['admin_id'] = $row['employee_id'];
-        $_SESSION['admin_name'] = $row['name'];
+        $_SESSION['user_id'] = $row['employee_id'];
+        $_SESSION['user_name'] = $row['name'];
         $_SESSION['role'] = $row['role'];
     }
 }
 
 
-if (!isset($_SESSION['admin_id']) || $_SESSION['role'] !== 'admin') {
+if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
     header("Location: ../login.php");
     exit();
 }
 
 include("../../includes/db/config.php");
 
-//$users = $conn->query("SELECT COUNT(*) as total FROM users")->fetch_assoc()['total'] ?? 0;
+$users = $conn->query("SELECT COUNT(*) as total FROM users")->fetch_assoc()['total'] ?? 0;
 
 
 $employees = $conn->query("SELECT COUNT(*) as total FROM employees")->fetch_assoc()['total'] ?? 0;
@@ -69,7 +69,7 @@ $revenue = $conn->query("SELECT SUM(c.price) as total
             <header class="topbar">
                 <div>
                     <h1>Dashboard</h1>
-                    <p>Welcome, <?php echo htmlspecialchars($_SESSION['admin_name']); ?></p>
+                    <p>Welcome, <?php echo htmlspecialchars($_SESSION['user_name']); ?></p>
                 </div>
             </header>
 
@@ -77,7 +77,7 @@ $revenue = $conn->query("SELECT SUM(c.price) as total
             <section class="summarisation-cards">
             <div class="card">
                 <h3>TOTAL USERS</h3>
-                <p id="users">1,247</p>
+                <p id="users"><?php echo $users ?></p>
             </div>
             <div class="card">
                 <h3>TOTAL EMPLOYEES</h3>
@@ -125,7 +125,25 @@ $revenue = $conn->query("SELECT SUM(c.price) as total
                     </tr>
                 </thead>
                 <tbody id="table-users">
-                    
+                     <?php
+                        $sql = "SELECT id, username, email, role FROM users ORDER BY created_at DESC LIMIT 5";
+                        $resultUsers = $conn->query($sql);
+
+                        if ($resultUsers && $resultUsers->num_rows > 0) {
+                            while ($u = $resultUsers->fetch_assoc()) {
+                                echo "<tr>
+                                        <td>" . htmlspecialchars($u['id']) . "</td>
+                                        <td>" . htmlspecialchars($u['username']) . "</td>
+                                        <td>" . htmlspecialchars($u['email']) . "</td>
+                                        <td>" . htmlspecialchars($u['role']) . "</td>
+                                    </tr>";
+                            }
+                        } elseif ($resultUsers) {
+                            echo "<tr><td colspan='4'>No recent users found</td></tr>";
+                        } else {
+                            echo "<tr><td colspan='4'>Query error: " . htmlspecialchars($conn->error) . "</td></tr>";
+                        }
+                        ?>
                 </tbody>
                 </table>
             </div>

@@ -3,12 +3,12 @@ session_start();
 require_once("../../../includes/db/config.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (!isset($_SESSION['admin_id']) || $_SESSION['role'] !== 'admin') {
+    if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
         header("Location: ../login.php");
         exit();
     }
 
-    $id = $_SESSION['admin_id'];
+    $id = $_SESSION['user_id'];
     $old_password = $_POST['old_password'];
     $new_password = $_POST['new_password'];
     $confirm_password = $_POST['confirm_password'];

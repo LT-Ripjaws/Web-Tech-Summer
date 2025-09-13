@@ -1,6 +1,6 @@
 <?php include("../includes/header.php"); 
 session_start();
-require_once __DIR__ . "/../includes/db/config.php";
+include("/../includes/db/config.php");
 ?>
 <link rel="stylesheet" href="/Web-Tech-Summer/project/assets/css/login.css">
 
@@ -11,93 +11,120 @@ require_once __DIR__ . "/../includes/db/config.php";
     $error = "";
     
     function test_input($data) {
-    return htmlspecialchars(stripslashes(trim($data)));
-}
-    if (isset($_SESSION['admin_id'])) {
-    if ($_SESSION['role'] === 'admin') {
-        header("Location: Admin/admin-dash.php");
-    } else {
-        header("Location: Employee/employee-dash.php");
+        return htmlspecialchars(stripslashes(trim($data)));
     }
-    exit();
+        if (isset($_SESSION['user_id'])) {
+        roleRedirection($_SESSION['role']);
+        exit();
+    }   
+
+    if (!isset($_SESSION['user_id']) && isset($_COOKIE['user_email'])) {
+    $email = $conn->real_escape_string($_COOKIE['user_email']);
+
+    
+    $sql = "SELECT employee_id AS id, name, email, role, status 
+            FROM employees WHERE email = '$email' LIMIT 1";
+    $result = $conn->query($sql);
+
+    if ($result && $result->num_rows === 1) {
+        $row = $result->fetch_assoc();
+        if ($row['status'] === "active") {
+            setUserSession($row['id'], $row['name'], $row['role']);
+            roleRedirection($row['role']);
+            exit();
+        }
     }
 
-    if (!isset($_SESSION['admin_id']) && isset($_COOKIE['user_email'])) {
-        $email = $conn->real_escape_string($_COOKIE['user_email']);
-        $sql = "SELECT employee_id, name, role, status FROM employees WHERE email = '$email' LIMIT 1";
+    
+    $sql2 = "SELECT id, username AS name, email 
+            FROM users WHERE email = '$email' LIMIT 1";
+    $result2 = $conn->query($sql2);
+
+    if ($result2 && $result2->num_rows === 1) {
+        $row2 = $result2->fetch_assoc();
+        setUserSession($row2['id'], $row2['name'], "customer");
+        roleRedirection("customer");
+        exit();
+    }
+}
+
+   if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
+    $user = $conn->real_escape_string(test_input($_POST["username"]));
+    $password = test_input($_POST["password"]);
+
+    if (empty($user) || empty($password)) {
+        $error = "All fields are required";
+    } else {
+      
+        $sql = "SELECT employee_id AS id, name, email, password, role, status 
+                FROM employees WHERE email = '$user' LIMIT 1";
         $result = $conn->query($sql);
 
         if ($result && $result->num_rows === 1) {
             $row = $result->fetch_assoc();
-
-            if ($row['status'] === "active") {
-                
-                session_regenerate_id(true);
-                $_SESSION['admin_id']   = $row['employee_id'];
-                $_SESSION['admin_name'] = $row['name'];
-                $_SESSION['role']       = $row['role'];
-
-                
-                if ($row['role'] === 'admin') {
-                    header("Location: Admin/admin-dash.php");
-                } else {
-                    header("Location: Employee/employee-dash.php");
-                }
-                exit();
-            }
-        }
-    }
-
-    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {   
-
-        $user = test_input($_POST["username"]);
-        $password = test_input($_POST["password"]);
-        $valid = true;
-
-        
-        if (empty($user) || empty($password)) {
-            $error = "All fields are required";
-            $valid = false;
-        }
-
-        
-        if ($valid) {
-            $sql = "SELECT employee_id, name, email, password, role, status 
-                    FROM employees WHERE email = '$user' LIMIT 1";
-            $result = $conn->query($sql);
-
-            if ($result->num_rows === 1) {
-            $row = $result->fetch_assoc();
-
-           
             if (password_verify($password, $row['password'])) {
                 if ($row['status'] !== "active") {
-                    $passErr = "Account is not active.";
+                    $error = "Account is not active.";
                 } else {
-                    session_regenerate_id(true); 
-                    $_SESSION['admin_id'] = $row['employee_id'];
-                    $_SESSION['admin_name'] = $row['name'];
-                    $_SESSION['role'] = $row['role'];
-
+                    setUserSession($row['id'], $row['name'], $row['role']);
                     if (isset($_POST['remember-me'])) {
-                    setcookie("user_email", $row['email'], time() + (86400 * 30), "/"); 
+                        setcookie("user_email", $row['email'], time() + (86400 * 30), "/");
                     }
-
-                    if ($row['role'] === 'admin') {
-                        header("Location: Admin/admin-dash.php");
-                    } else {
-                        header("Location: Employee/employee-dash.php");
-                    }
+                    roleRedirection($row['role']);
                     exit();
                 }
             } else {
                 $error = "Invalid username or password";
             }
         } else {
-            $error = "Invalid username or password";
+           
+            $sql2 = "SELECT id, username AS name, email, password 
+                     FROM users WHERE email = '$user' LIMIT 1";
+            $result2 = $conn->query($sql2);
+
+            if ($result2 && $result2->num_rows === 1) {
+                $row2 = $result2->fetch_assoc();
+                if (password_verify($password, $row2['password'])) {
+                    setUserSession($row2['id'], $row2['name'], "customer");
+                    if (isset($_POST['remember-me'])) {
+                        setcookie("user_email", $row2['email'], time() + (86400 * 30), "/");
+                    }
+                    roleRedirection("customer");
+                    exit();
+                } else {
+                    $error = "Invalid username or password";
+                }
+            } else {
+                $error = "Invalid username or password";
+            }
         }
-        
     }
+}
+
+
+function setUserSession($id, $name, $role) {
+    session_regenerate_id(true);
+    $_SESSION['user_id']   = $id;
+    $_SESSION['user_name'] = $name;
+    $_SESSION['role']      = $role;
+}
+
+function roleRedirection($role) {
+    switch ($role) {
+        case 'admin':
+            header("Location: Admin/admin-dash.php");
+            break;
+        case 'employee':
+            header("Location: Employee/employee-dash.php");
+            break;
+        case 'customer':
+            header("Location: Customer/dashboard.php");
+            break;
+        default:
+            header("Location: login.php?error=invalid_role");
+            break;
+    }
+    exit();
 }
 
 ?>
