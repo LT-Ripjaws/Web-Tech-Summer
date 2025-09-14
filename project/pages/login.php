@@ -114,8 +114,8 @@ function roleRedirection($role) {
         case 'admin':
             header("Location: Admin/admin-dash.php");
             break;
-        case 'employee':
-            header("Location: Employee/employee-dash.php");
+        case 'sales':
+            header("Location: Dealer/dealer-dashboard.php");
             break;
         case 'customer':
             header("Location: Customer/dashboard.php");

@@ -1,0 +1,74 @@
+<aside class="sidebar">
+    <header class="sidebar-header">
+        <div class="sidebar-panel-name">
+        <div class="sidebar-logo">
+            <img src="/Web-Tech-Summer/project/assets/images/logo.png" alt="logo">
+        </div>
+            <h2>Dealer Panel</h2>
+        </div>
+        <button class="toggler sidebar-toggle">
+            <span class="material-symbols-rounded">chevron_left</span>
+        </button>
+        <button class="toggler menu-toggle">
+            <span class="material-symbols-rounded">menu</span>
+        </button>
+    </header>
+    <nav class="sidebar-nav">
+        <!--primary top nav-->
+        <ul class="nav-list primary-nav">
+            <li class="nav-item">
+                <a href="../Dealer/dealer-dashboard.php" class="nav-link">
+                    <span class="nav-icon material-symbols-rounded">dashboard</span>
+                    <span class="nav-label">Dashboard</span>
+                </a>
+                <span class="nav-tooltip">Dashboard</span>
+            </li>
+            <li class="nav-item">
+                <a href="../Dealer/manage-cars.php" class="nav-link">
+                    <span class="nav-icon material-symbols-rounded">directions_car</span>
+                    <span class="nav-label">Manage Cars</span>
+                </a>
+                <span class="nav-tooltip">Manage Cars</span>
+            </li>
+            <li class="nav-item">
+                <a href="../Dealer/manage-offers.php" class="nav-link">
+                    <span class="nav-icon material-symbols-rounded">local_offer</span>
+                    <span class="nav-label">Manage Offers</span>
+                </a>
+                <span class="nav-tooltip">Manage Offers</span>
+            </li>
+            <li class="nav-item">
+                <a href="../Dealer/bookings.php" class="nav-link">
+                    <span class="nav-icon material-symbols-rounded">event_available</span>
+                    <span class="nav-label">Bookings</span>
+                </a>
+                <span class="nav-tooltip">Bookings</span>
+            </li>
+            <li class="nav-item">
+                <a href="../Dealer/sales-reports.php" class="nav-link">
+                    <span class="nav-icon material-symbols-rounded">analytics</span>
+                    <span class="nav-label">Sales Reports</span>
+                </a>
+                <span class="nav-tooltip">Sales Reports</span>
+            </li>
+            <li class="nav-item">
+                <a href="../Dealer/inquiries.php" class="nav-link">
+                    <span class="nav-icon material-symbols-rounded">question_answer</span>
+                    <span class="nav-label">Inquiries</span>
+                </a>
+                <span class="nav-tooltip">Inquiries</span>
+            </li>
+        </ul>
+
+        <!--Secondary bottom nav-->
+        <ul class="nav-list secondary-nav">
+            <li class="nav-item">
+                <a href="../logout.php" class="nav-link">
+                    <span class="nav-icon material-symbols-rounded">logout</span>
+                    <span class="nav-label">Logout</span>
+                </a>
+                <span class="nav-tooltip">Logout</span>
+            </li>
+        </ul>
+    </nav>
+</aside>
